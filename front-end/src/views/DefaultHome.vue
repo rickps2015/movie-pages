@@ -2,7 +2,7 @@
     <header-layout>
         <div class="container-fluid">
             <div class="row text-vt-c-primary">
-                Contéudo da página
+                Contéudo da página Teste
             </div>
         </div>
     </header-layout>
