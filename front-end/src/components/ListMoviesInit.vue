@@ -1,54 +1,50 @@
 <template>
     <main>
         <div class="container-fluid p-0 mt-2">
-            <div class="card">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="container text-center my-3">
-                                <h2 class="font-weight-light">Bootstrap 4 - Multi Item Carousel</h2>
-                                <div class="row mx-auto my-auto">
-                                    <div id="recipeCarousel" class="carousel slide w-100" data-ride="carousel">
-                                        <div class="carousel-inner w-100" role="listbox">
-                                            <template v-for="item in dados.results" :key="item.id">
-                                                <div class="carousel-item active">
-                                                    <div class="col-2">
-                                                        <img :src="imgAPI + item.poster_path" :alt="item.title" />
-                                                    </div>
-                                                </div>
-                                                <div class="carousel-item">
-                                                    <div class="col-2">
-                                                        <img :src="imgAPI + item.poster_path" :alt="item.title" />
-                                                    </div>
-                                                </div>
-                                            </template>
-                                        </div>
-                                        <a class="carousel-control-prev w-auto" href="#recipeCarousel" role="button"
-                                            data-slide="prev">
-                                            <span
-                                                class="carousel-control-prev-icon bg-dark border border-dark rounded-circle"
-                                                aria-hidden="true"></span>
-                                            <span class="sr-only">Previous</span>
-                                        </a>
-                                        <a class="carousel-control-next w-auto" href="#recipeCarousel" role="button"
-                                            data-slide="next">
-                                            <span
-                                                class="carousel-control-next-icon bg-dark border border-dark rounded-circle"
-                                                aria-hidden="true"></span>
-                                            <span class="sr-only">Next</span>
-                                        </a>
-                                    </div>
-                                </div>
-                                <h5 class="mt-2">Advances one slide at a time</h5>
-                            </div>
-                            <section class="carousel">
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <div id="myCarousel" class="carousel slide container" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
                                 <template v-for="item in dados.results" :key="item.id">
-                                    <div class="col-2 carousel-item-active">
-                                        <img :src="imgAPI + item.poster_path" :alt="item.title" />
+                                    <div class="col-auto px-2">
+                                        <div class="container">
+                                            <div class="cellphone-container">
+                                                <div class="movie">
+                                                    <img class="movie-img" :src="imgAPI + item.poster_path" :alt="item.title" />
+                                                    <div class="text-movie-cont">
+                                                        <div class="mr-grid">
+                                                            <div class="col1">
+                                                                <p class="movie-description">A group of elderly people are
+                                                                    giving interviews about having lived in a climate of
+                                                                    crop blight and constant dust reminiscent of The Great
+                                                                    Depression of the 1930's. The first one seen is an
+                                                                    elderly woman stating her father was a farmer, but did
+                                                                    not start out that way. </p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="mr-grid actors-row">
+                                                            <div class="col1">
+                                                                <p class="movie-actors">Matthew McConaughey, Anne Hathaway,
+                                                                    Jessica Chastain</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </template>
-                            </section>
+                            </div>
                         </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel"
+                            data-bs-slide="prev" @click="nextSlide(false)">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel"
+                            data-bs-slide="next" @click="nextSlide(true)">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -56,6 +52,11 @@
     </main>
     <slot></slot>
 </template>
+
+<style scope>
+@import "../assets/StyleCarrusel.css";
+@import "../assets/StyleCardMovie.css";
+</style>
 
 <script>
 import axios from 'axios'
@@ -81,7 +82,25 @@ export default {
                 .catch(error => {
                     console.log(error)
                 })
-        }
+        },
+        nextSlide(tipo) {
+            const carousel = document.querySelector('.carousel');
+            const slides = document.querySelector('.carousel-inner');
+            const slideWidth = slides.querySelector('.carousel-item').offsetWidth;
+            const maxOffset = slides.scrollWidth - carousel.offsetWidth;
+            const currentOffset = slides.scrollLeft;
+            let newOffset = null;
+            if (tipo) {
+                newOffset = Math.min(currentOffset + slideWidth, maxOffset);
+            } else if (!tipo) {
+                newOffset = Math.min(currentOffset - slideWidth, maxOffset);
+            }
+            slides.scrollTo({
+                left: newOffset,
+                behavior: 'smooth'
+            });
+
+        },
     },
 }
 </script>
