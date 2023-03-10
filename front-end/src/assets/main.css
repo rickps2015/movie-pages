@@ -8,18 +8,18 @@
 }
 
 a,
-.green {
+.color01 {
   text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
+  color: rgb(179, 24, 24);
   transition: 0.4s;
 }
 
 .bg-color-primary {
-  background-color: #1e1b20e6;
+  background-color: #171717f1;
 }
 
 .card,.card-body {
-  background-color: #1e1b20e6;
+  background-color: #222222;
   border-radius: .9rem;
 }
 
