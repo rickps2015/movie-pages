@@ -1,6 +1,7 @@
 <template>
     <header-layout>
         <div class="container-fluid">
+            <ListMoviesInit/>
             <div class="row text-vt-c-primary">
                 Contéudo da página Teste 01
             </div>
@@ -9,9 +10,21 @@
 </template>
 
 <script>
+import ListMoviesInit from '../components/ListMoviesInit.vue'
 export default {
-    return() {
-
-    }
+    components: {
+        ListMoviesInit
+    },
+    data() {
+        return {
+            
+        }
+    },
+    mounted() {
+        
+    },
+    methods: {
+        
+    },
 }
 </script>
