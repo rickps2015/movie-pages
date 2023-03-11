@@ -3,6 +3,10 @@
     border: 2em;
 }
 
+.carousel-control-next:hover, .carousel-control-prev:hover {
+    background-color: #00000033;
+}
+
 @media (max-width: 768px) {
     .carousel-inner .carousel-item>div {
         display: none;
