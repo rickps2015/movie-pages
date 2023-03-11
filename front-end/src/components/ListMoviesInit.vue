@@ -5,13 +5,33 @@
                 <div class="col-12">
                     <!-- Filmes - Melhores Avaliados -->
                     <div id="myCarousel" class="carousel carousel_top_rated slide container mt-5" data-bs-ride="carousel">
-                        <h3 class="text-start">Filmes Melhores Avaliados</h3>
+                        <div class="row justify-content-between">
+                            <div class="col-auto">
+                                <h3 class="text-start">Filmes Melhores Avaliados</h3>
+                            </div>
+                            <div class="col-auto">
+                                <div class="row">
+                                    <div class="col-auto px-0">
+                                        <button class="btn-prev-next" type="button" data-bs-target="#myCarousel"
+                                            data-bs-slide="prev" @click="nextSlide(false, 'top_rated')">
+                                            <font-awesome-icon icon="fa fa-solid fa-chevron-left" />
+                                        </button>
+                                    </div>
+                                    <div class="col-auto px-0">
+                                        <button class="btn-prev-next" type="button" data-bs-target="#myCarousel"
+                                            data-bs-slide="next" @click="nextSlide(true, 'top_rated')">
+                                            <font-awesome-icon icon="fa fa-solid fa-chevron-right" />
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="carousel-inner carousel-inner_top_rated">
                             <div class="carousel-item carousel-item_top_rated active">
                                 <template v-for="item in top_rated.results" :key="item.id">
                                     <div class="col-auto px-1">
                                         <img class="movie-img rounded-4" :src="imgAPI + item.poster_path"
-                                            :alt="item.title" /><br>
+                                            :alt="item.title" :title="item.title"/><br>
                                         <span class="text-warning">
                                             <font-awesome-icon icon="fa-solid fa-star text-warning" />
                                             {{ item.vote_average }}
@@ -20,24 +40,36 @@
                                 </template>
                             </div>
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel"
-                            data-bs-slide="prev" @click="nextSlide(false, 'top_rated')">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel"
-                            data-bs-slide="next" @click="nextSlide(true, 'top_rated')">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        </button>
                     </div>
                     <!-- Filmes - Mais Populares -->
                     <div id="myCarousel" class="carousel carousel_popular slide container mt-5" data-bs-ride="carousel">
-                        <h3 class="text-start">Filmes Populares</h3>
+                        <div class="row justify-content-between">
+                            <div class="col-auto">
+                                <h3 class="text-start">Filmes Populares</h3>
+                            </div>
+                            <div class="col-auto">
+                                <div class="row">
+                                    <div class="col-auto px-0">
+                                        <button class="btn-prev-next" type="button" data-bs-target="#myCarousel"
+                                            data-bs-slide="prev" @click="nextSlide(false, 'popular')">
+                                            <font-awesome-icon icon="fa fa-solid fa-chevron-left" />
+                                        </button>
+                                    </div>
+                                    <div class="col-auto px-0">
+                                        <button class="btn-prev-next" type="button" data-bs-target="#myCarousel"
+                                            data-bs-slide="next" @click="nextSlide(true, 'popular')">
+                                            <font-awesome-icon icon="fa fa-solid fa-chevron-right" />
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="carousel-inner carousel-inner_popular">
                             <div class="carousel-item carousel-item_popular active">
                                 <template v-for="item in popular.results" :key="item.id">
                                     <div class="col-auto px-1">
                                         <img class="movie-img rounded-4" :src="imgAPI + item.poster_path"
-                                            :alt="item.title" /><br>
+                                            :alt="item.title" :title="item.title"/><br>
                                         <span class="text-warning">
                                             <font-awesome-icon icon="fa-solid fa-star text-warning" />
                                             {{ item.vote_average }}
@@ -46,24 +78,36 @@
                                 </template>
                             </div>
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel"
-                            data-bs-slide="prev" @click="nextSlide(false, 'popular')">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel"
-                            data-bs-slide="next" @click="nextSlide(true, 'popular')">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        </button>
                     </div>
                     <!-- Filmes - Em Breve -->
                     <div id="myCarousel" class="carousel carousel_upcoming slide container mt-5" data-bs-ride="carousel">
-                        <h3 class="text-start">Filmes em Breve</h3>
+                        <div class="row justify-content-between">
+                            <div class="col-auto">
+                                <h3 class="text-start">Filmes em Breve</h3>
+                            </div>
+                            <div class="col-auto">
+                                <div class="row">
+                                    <div class="col-auto px-0">
+                                        <button class="btn-prev-next" type="button" data-bs-target="#myCarousel"
+                                            data-bs-slide="prev" @click="nextSlide(false, 'upcoming')">
+                                            <font-awesome-icon icon="fa fa-solid fa-chevron-left" />
+                                        </button>
+                                    </div>
+                                    <div class="col-auto px-0">
+                                        <button class="btn-prev-next" type="button" data-bs-target="#myCarousel"
+                                            data-bs-slide="next" @click="nextSlide(true, 'upcoming')">
+                                            <font-awesome-icon icon="fa fa-solid fa-chevron-right" />
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="carousel-inner carousel-inner_upcoming">
                             <div class="carousel-item carousel-item_upcoming active">
                                 <template v-for="item in upcoming.results" :key="item.id">
                                     <div class="col-auto px-1">
                                         <img class="movie-img rounded-4" :src="imgAPI + item.poster_path"
-                                            :alt="item.title" /><br>
+                                            :alt="item.title" :title="item.title"/><br>
                                         <span class="text-warning">
                                             <font-awesome-icon icon="fa-solid fa-star text-warning" />
                                             {{ item.vote_average }}
@@ -72,24 +116,36 @@
                                 </template>
                             </div>
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel"
-                            data-bs-slide="prev" @click="nextSlide(false, 'upcoming')">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel"
-                            data-bs-slide="next" @click="nextSlide(true, 'upcoming')">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        </button>
                     </div>
                     <!-- Filmes - Em Cartaz -->
                     <div id="myCarousel" class="carousel carousel_now_playing slide container mt-5" data-bs-ride="carousel">
-                        <h3 class="text-start">Filmes em Cartaz</h3>
+                        <div class="row justify-content-between">
+                            <div class="col-auto">
+                                <h3 class="text-start">Filmes em Cartaz</h3>
+                            </div>
+                            <div class="col-auto">
+                                <div class="row">
+                                    <div class="col-auto px-0">
+                                        <button class="btn-prev-next" type="button" data-bs-target="#myCarousel"
+                                            data-bs-slide="prev" @click="nextSlide(false, 'now_playing')">
+                                            <font-awesome-icon icon="fa fa-solid fa-chevron-left" />
+                                        </button>
+                                    </div>
+                                    <div class="col-auto px-0">
+                                        <button class="btn-prev-next" type="button" data-bs-target="#myCarousel"
+                                            data-bs-slide="next" @click="nextSlide(true, 'now_playing')">
+                                            <font-awesome-icon icon="fa fa-solid fa-chevron-right" />
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="carousel-inner carousel-inner_now_playing">
                             <div class="carousel-item carousel-item_now_playing active">
                                 <template v-for="item in now_playing.results" :key="item.id">
                                     <div class="col-auto px-1">
                                         <img class="movie-img rounded-4" :src="imgAPI + item.poster_path"
-                                            :alt="item.title" /><br>
+                                            :alt="item.title" :title="item.title"/><br>
                                         <span class="text-warning">
                                             <font-awesome-icon icon="fa-solid fa-star text-warning" />
                                             {{ item.vote_average }}
@@ -98,25 +154,37 @@
                                 </template>
                             </div>
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel"
-                            data-bs-slide="prev" @click="nextSlide(false, 'now_playing')">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel"
-                            data-bs-slide="next" @click="nextSlide(true, 'now_playing')">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        </button>
                     </div>
                     <!-- Tv - Melhores Avaliados -->
                     <div id="myCarousel" class="carousel carousel_tv_top_rated slide container mt-5"
                         data-bs-ride="carousel">
-                        <h3 class="text-start">Programas de TV Mais Avaliados</h3>
+                        <div class="row justify-content-between">
+                            <div class="col-auto">
+                                <h3 class="text-start">Programas de TV Mais Avaliados</h3>
+                            </div>
+                            <div class="col-auto">
+                                <div class="row">
+                                    <div class="col-auto px-0">
+                                        <button class="btn-prev-next" type="button" data-bs-target="#myCarousel"
+                                            data-bs-slide="prev" @click="nextSlide(false, 'tv_top_rated')">
+                                            <font-awesome-icon icon="fa fa-solid fa-chevron-left" />
+                                        </button>
+                                    </div>
+                                    <div class="col-auto px-0">
+                                        <button class="btn-prev-next" type="button" data-bs-target="#myCarousel"
+                                            data-bs-slide="next" @click="nextSlide(true, 'tv_top_rated')">
+                                            <font-awesome-icon icon="fa fa-solid fa-chevron-right" />
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="carousel-inner carousel-inner_tv_top_rated">
                             <div class="carousel-item carousel-item_tv_top_rated active">
                                 <template v-for="item in tv_top_rated.results" :key="item.id">
                                     <div class="col-auto px-1">
                                         <img class="movie-img rounded-4" :src="imgAPI + item.poster_path"
-                                            :alt="item.title" /><br>
+                                            :alt="item.title" :title="item.name"/><br>
                                         <span class="text-warning">
                                             <font-awesome-icon icon="fa-solid fa-star text-warning" />
                                             {{ item.vote_average }}
@@ -125,24 +193,36 @@
                                 </template>
                             </div>
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel"
-                            data-bs-slide="prev" @click="nextSlide(false, 'tv_top_rated')">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel"
-                            data-bs-slide="next" @click="nextSlide(true, 'tv_top_rated')">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        </button>
                     </div>
                     <!-- Tv - Programas de TV Mais Populares -->
                     <div id="myCarousel" class="carousel carousel_tv_popular slide container mt-5" data-bs-ride="carousel">
-                        <h3 class="text-start">Programas de TV Mais Populares</h3>
+                        <div class="row justify-content-between">
+                            <div class="col-auto">
+                                <h3 class="text-start">Programas de TV Mais Populares</h3>
+                            </div>
+                            <div class="col-auto">
+                                <div class="row">
+                                    <div class="col-auto px-0">
+                                        <button class="btn-prev-next" type="button" data-bs-target="#myCarousel"
+                                            data-bs-slide="prev" @click="nextSlide(false, 'tv_popular')">
+                                            <font-awesome-icon icon="fa fa-solid fa-chevron-left" />
+                                        </button>
+                                    </div>
+                                    <div class="col-auto px-0">
+                                        <button class="btn-prev-next" type="button" data-bs-target="#myCarousel"
+                                            data-bs-slide="next" @click="nextSlide(true, 'tv_popular')">
+                                            <font-awesome-icon icon="fa fa-solid fa-chevron-right" />
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="carousel-inner carousel-inner_tv_popular">
                             <div class="carousel-item carousel-item_tv_popular active">
                                 <template v-for="item in tv_popular.results" :key="item.id">
                                     <div class="col-auto px-1">
                                         <img class="movie-img rounded-4" :src="imgAPI + item.poster_path"
-                                            :alt="item.title" /><br>
+                                            :alt="item.title" :title="item.name"/><br>
                                         <span class="text-warning">
                                             <font-awesome-icon icon="fa-solid fa-star text-warning" />
                                             {{ item.vote_average }}
@@ -151,25 +231,37 @@
                                 </template>
                             </div>
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel"
-                            data-bs-slide="prev" @click="nextSlide(false, 'tv_popular')">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel"
-                            data-bs-slide="next" @click="nextSlide(true, 'tv_popular')">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        </button>
                     </div>
                     <!-- Tv - No Ar -->
                     <div id="myCarousel" class="carousel carousel_tv_airing_today slide container mt-5 mb-5"
                         data-bs-ride="carousel">
-                        <h3 class="text-start">Programas de TV no Ar</h3>
+                        <div class="row justify-content-between">
+                            <div class="col-auto">
+                                <h3 class="text-start">Programas de TV no Ar</h3>
+                            </div>
+                            <div class="col-auto">
+                                <div class="row">
+                                    <div class="col-auto px-0">
+                                        <button class="btn-prev-next" type="button" data-bs-target="#myCarousel"
+                                            data-bs-slide="prev" @click="nextSlide(false, 'tv_airing_today')">
+                                            <font-awesome-icon icon="fa fa-solid fa-chevron-left" />
+                                        </button>
+                                    </div>
+                                    <div class="col-auto px-0">
+                                        <button class="btn-prev-next" type="button" data-bs-target="#myCarousel"
+                                            data-bs-slide="next" @click="nextSlide(true, 'tv_airing_today')">
+                                            <font-awesome-icon icon="fa fa-solid fa-chevron-right" />
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="carousel-inner carousel-inner_tv_airing_today">
                             <div class="carousel-item carousel-item_tv_airing_today active">
                                 <template v-for="item in tv_airing_today.results" :key="item.id">
                                     <div class="col-auto px-1">
                                         <img class="movie-img rounded-4" :src="imgAPI + item.poster_path"
-                                            :alt="item.title" /><br>
+                                            :alt="item.title" :title="item.name"/><br>
                                         <span class="text-warning">
                                             <font-awesome-icon icon="fa-solid fa-star text-warning" />
                                             {{ item.vote_average }}
@@ -178,14 +270,6 @@
                                 </template>
                             </div>
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel"
-                            data-bs-slide="prev" @click="nextSlide(false, 'tv_airing_today')">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel"
-                            data-bs-slide="next" @click="nextSlide(true, 'tv_airing_today')">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        </button>
                     </div>
                 </div>
             </div>
@@ -283,9 +367,9 @@ export default {
             const currentOffset = slides.scrollLeft;
             let newOffset = null;
             if (tipo) {
-                newOffset = Math.min(currentOffset + slideWidth, maxOffset);
+                newOffset = Math.min(currentOffset + slideWidth, maxOffset + 20);
             } else if (!tipo) {
-                newOffset = Math.min(currentOffset - slideWidth, maxOffset);
+                newOffset = Math.min(currentOffset - slideWidth, maxOffset + 20);
             }
             slides.scrollTo({
                 left: newOffset,

@@ -7,6 +7,15 @@
     background-color: #00000033;
 }
 
+.btn-prev-next {
+    background-color: #ffffff00;
+    color: rgb(179, 24, 24);
+    padding: 0 10px;
+    border: 0px;
+    margin-bottom: 5px;
+    font-size: 20px;
+}
+
 @media (max-width: 768px) {
     .carousel-inner .carousel-item>div {
         display: none;
