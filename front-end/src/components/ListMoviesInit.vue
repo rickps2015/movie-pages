@@ -1,9 +1,9 @@
 <template>
     <main>
         <div class="container-fluid p-0 mt-2">
-            <div class="col-12">
+            <!-- <div class="col-12">
                 <img class="wallpaper rounded-4" :src="imgWallpapersAPI + wallpaper" />
-            </div>
+            </div> -->
             <div class="row justify-content-center">
                 <div class="col-12">
                     <!-- Filmes - Melhores Avaliados -->
@@ -350,15 +350,15 @@ export default {
                 .catch(error => {
                     console.log(error)
                 })
-            await axios.get(this.tvAPI + 'popular?' + this.apiKey + this.language)
-                .then(response => {
-                    this.tv_popular = response.data;
-                    this.wallpaper = this.tv_popular.results[0].backdrop_path;
-                    console.log(this.wallpaper);
-                })
-                .catch(error => {
-                    console.log("Teste de erro: ",error)
-                })
+            // await axios.get(this.tvAPI + 'popular?' + this.apiKey + this.language)
+            //     .then(response => {
+            //         this.tv_popular = response.data;
+            //         this.wallpaper = this.tv_popular.results[0].backdrop_path;
+            //         console.log(this.wallpaper);
+            //     })
+            //     .catch(error => {
+            //         console.log("Teste de erro: ",error)
+            //     })
             await axios.get(this.tvAPI + 'airing_today?' + this.apiKey + this.language)
                 .then(response => {
                     this.tv_airing_today = response.data
