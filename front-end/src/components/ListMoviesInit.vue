@@ -34,7 +34,7 @@
                                 <template v-for="item in top_rated.results" :key="item.id">
                                     <div class="col-auto py-2 px-1 movie-img">
                                         <img class="rounded-4" :src="imgAPI + item.poster_path" :alt="item.title"
-                                            :title="item.title" /><br>
+                                            :title="item.title"/><br>
                                         <span class="text-warning">
                                             <font-awesome-icon icon="fa-solid fa-star text-warning" />
                                             {{ item.vote_average }}
