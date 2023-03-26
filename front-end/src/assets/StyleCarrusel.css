@@ -4,12 +4,12 @@
 }
 
 .carousel-control-next:hover, .carousel-control-prev:hover {
-    background-color: #00000033;
+    background-color: var(--vt-c-black);
 }
 
 .btn-prev-next {
-    background-color: #ffffff00;
-    color: rgb(179, 24, 24);
+    background-color: var(--vt-c-transparent);
+    color: var(--vt-c-red);
     padding: 0 10px;
     border: 0px;
     margin-bottom: 5px;

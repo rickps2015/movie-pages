@@ -10,12 +10,12 @@
 a,
 .color01 {
   text-decoration: none;
-  color: rgb(179, 24, 24);
+  color: var(--vt-c-red);
   transition: 0.4s;
 }
 
 .bg-color-primary {
-  background-color: #171717f1;
+  background-color: var(--vt-c-black);
 }
 
 .card,.card-body {
@@ -23,15 +23,16 @@ a,
   border-radius: .9rem;
 }
 
+.themes {
+  background-color: #28282800;
+  border: 0;
+}
+
+
 @media (hover: hover) {
   a:hover {
-    color: hsla(48, 100%, 37%, 0.907);
+    color: var(--vt-c-yellow);
   }
 }
 
-/* @media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: auto;
-  }
-} */
+
