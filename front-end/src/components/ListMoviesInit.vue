@@ -32,7 +32,7 @@
                                     <div v-if="item.poster_path != null" class="col-auto py-2 px-1 movie-img">
                                         <router-link :to="{ name: 'details', params: { id: item.id } }">
                                             <img class="rounded-4" :src="imgAPI + item.poster_path" :alt="item.title"
-                                                :title="item.title" style="width: 200px;"/><br>
+                                                :title="item.title" style="width: 200px;" /><br>
                                             <span class="text-warning">
                                                 <font-awesome-icon icon="fa-solid fa-star text-warning" />
                                                 {{ item.vote_average }}
@@ -70,12 +70,14 @@
                             <div class="carousel-item carousel-item_popular active">
                                 <template v-for="item in popular.results" :key="item.id">
                                     <div v-if="item.poster_path != null" class="col-auto px-1 movie-img py-2">
-                                        <img class="rounded-4" :src="imgAPI + item.poster_path" :alt="item.title"
-                                            :title="item.title" style="width: 200px;"/><br>
-                                        <span class="text-warning">
-                                            <font-awesome-icon icon="fa-solid fa-star text-warning" />
-                                            {{ item.vote_average }}
-                                        </span>
+                                        <router-link :to="{ name: 'details', params: { id: item.id } }">
+                                            <img class="rounded-4" :src="imgAPI + item.poster_path" :alt="item.title"
+                                                :title="item.title" style="width: 200px;" /><br>
+                                            <span class="text-warning">
+                                                <font-awesome-icon icon="fa-solid fa-star text-warning" />
+                                                {{ item.vote_average }}
+                                            </span>
+                                        </router-link>
                                     </div>
                                 </template>
                             </div>
@@ -108,12 +110,14 @@
                             <div class="carousel-item carousel-item_upcoming active">
                                 <template v-for="item in upcoming.results" :key="item.id">
                                     <div v-if="item.poster_path != null" class="col-auto px-1 movie-img py-2">
-                                        <img class="rounded-4" :src="imgAPI + item.poster_path" :alt="item.title"
-                                            :title="item.title" style="width: 200px;"/><br>
-                                        <span class="text-warning">
-                                            <font-awesome-icon icon="fa-solid fa-star text-warning" />
-                                            {{ item.vote_average }}
-                                        </span>
+                                        <router-link :to="{ name: 'details', params: { id: item.id } }">
+                                            <img class="rounded-4" :src="imgAPI + item.poster_path" :alt="item.title"
+                                                :title="item.title" style="width: 200px;" /><br>
+                                            <span class="text-warning">
+                                                <font-awesome-icon icon="fa-solid fa-star text-warning" />
+                                                {{ item.vote_average }}
+                                            </span>
+                                        </router-link>
                                     </div>
                                 </template>
                             </div>
@@ -146,19 +150,25 @@
                             <div class="carousel-item carousel-item_now_playing active">
                                 <template v-for="item in now_playing.results" :key="item.id">
                                     <div v-if="item.poster_path != null" class="col-auto px-1 movie-img py-2">
-                                        <img class="rounded-4" :src="imgAPI + item.poster_path" :alt="item.title"
-                                            :title="item.title" style="width: 200px;"/><br>
-                                        <span class="text-warning">
-                                            <font-awesome-icon icon="fa-solid fa-star text-warning" />
-                                            {{ item.vote_average }}
-                                        </span>
+                                        <router-link :to="{ name: 'details', params: { id: item.id } }">
+                                            <img class="rounded-4" :src="imgAPI + item.poster_path" :alt="item.title"
+                                                :title="item.title" style="width: 200px;" /><br>
+                                            <span class="text-warning">
+                                                <font-awesome-icon icon="fa-solid fa-star text-warning" />
+                                                {{ item.vote_average }}
+                                            </span>
+                                        </router-link>
                                     </div>
                                 </template>
                             </div>
                         </div>
                     </div>
+
+
+
+                    <!-- Comentados TV -->
                     <!-- Tv - Melhores Avaliados -->
-                    <div id="myCarousel" class="carousel carousel_tv_top_rated slide container mt-5"
+                    <!-- <div id="myCarousel" class="carousel carousel_tv_top_rated slide container mt-5"
                         data-bs-ride="carousel">
                         <div class="row justify-content-between">
                             <div class="col-auto">
@@ -185,19 +195,21 @@
                             <div class="carousel-item carousel-item_tv_top_rated active">
                                 <template v-for="item in tv_top_rated.results" :key="item.id">
                                     <div v-if="item.poster_path != null" class="col-auto px-1 movie-img py-2">
-                                        <img class="rounded-4" :src="imgAPI + item.poster_path" :alt="item.title"
-                                            :title="item.name" style="width: 200px;"/><br>
-                                        <span class="text-warning">
-                                            <font-awesome-icon icon="fa-solid fa-star text-warning" />
-                                            {{ item.vote_average }}
-                                        </span>
+                                        <router-link :to="{ name: 'details', params: { id: item.id } }">
+                                            <img class="rounded-4" :src="imgAPI + item.poster_path" :alt="item.title"
+                                                :title="item.name" style="width: 200px;" /><br>
+                                            <span class="text-warning">
+                                                <font-awesome-icon icon="fa-solid fa-star text-warning" />
+                                                {{ item.vote_average }}
+                                            </span>
+                                        </router-link>
                                     </div>
                                 </template>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- Tv - No Ar -->
-                    <div id="myCarousel" class="carousel carousel_tv_airing_today slide container mt-5 mb-5"
+                    <!-- <div id="myCarousel" class="carousel carousel_tv_airing_today slide container mt-5 mb-5"
                         data-bs-ride="carousel">
                         <div class="row justify-content-between">
                             <div class="col-auto">
@@ -224,17 +236,19 @@
                             <div class="carousel-item carousel-item_tv_airing_today active">
                                 <template v-for="item in tv_airing_today.results" :key="item.id">
                                     <div v-if="item.poster_path != null" class="col-auto px-1 movie-img py-2">
+                                        <router-link :to="{ name: 'details', params: { id: item.id } }">
                                         <img class="rounded-4" :src="imgAPI + item.poster_path" :alt="item.title"
-                                            :title="item.name" style="width: 200px;"/><br>
+                                            :title="item.name" style="width: 200px;" /><br>
                                         <span class="text-warning">
                                             <font-awesome-icon icon="fa-solid fa-star text-warning" />
                                             {{ item.vote_average }}
                                         </span>
+                                    </router-link>
                                     </div>
                                 </template>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- Tv - Programas de TV Mais Populares -->
                     <!-- <div id="myCarousel" class="carousel carousel_tv_popular slide container mt-5" data-bs-ride="carousel">
                         <div class="row justify-content-between">
@@ -262,12 +276,14 @@
                             <div class="carousel-item carousel-item_tv_popular active">
                                 <template v-for="item in tv_popular.results" :key="item.id">
                                     <div v-if="item.poster_path != null" class="col-auto px-1 movie-img py-2">
+                                        <router-link :to="{ name: 'details', params: { id: item.id } }">
                                         <img class="rounded-4" :src="imgAPI + item.poster_path" :alt="item.title"
-                                            :title="item.name" style="width: 200px;"/><br>
+                                            :title="item.name" style="width: 200px;" /><br>
                                         <span class="text-warning">
                                             <font-awesome-icon icon="fa-solid fa-star text-warning" />
                                             {{ item.vote_average }}
                                         </span>
+                                    </router-link>
                                     </div>
                                 </template>
                             </div>
@@ -348,7 +364,7 @@ export default {
                 })
             await axios.get(this.tvAPI + 'popular?' + this.apiKey + this.language)
                 .then(response => {
-                    this.tv_top_rated = response.data
+                    this.tv_popular = response.data
                 })
                 .catch(error => {
                     console.log(error)

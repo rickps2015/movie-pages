@@ -2,49 +2,29 @@
     <main>
         <header-layout>
             <div class="container-fluid p-0">
-                <div class="movie-card">
-                    <div class="wallpaper">
-                        <img :src="imgAPI + dados.backdrop_path" alt="cover" style="width: 1400px;" class="cover" />
-                    </div>
-                    <div class="container">
-                        <img :src="imgAPI + dados.poster_path" alt="cover" style="width: 200px;" class="cover" />
-                        <!-- <div class="hero">
-                            <div class="details">
-                                <div class="title1">The Hobbit <span>PG-13</span></div>
-                                <div class="title2">The Battle of the Five Armies</div>
-                                <span class="likes">109 likes</span>
-                            </div> 
-                        </div>  -->
-                        <div class="description">
-                            <div class="row justify-content-end">
-                                <div class="col-9">
-                                    <p>Bilbo Baggins is swept into a quest to reclaim the lost Dwarf Kingdom of Erebor from
-                                        the fearsome dragon Smaug. Approached out of the blue by the wizard Gandalf the
-                                        Grey,
-                                        Bilbo finds himself joining a company of thirteen dwarves led by the legendary
-                                        warrior,
-                                        Thorin Oakenshield. Their journey will take them into the Wild; through...
-                                        <a href="#">read more</a>
-                                    </p>
-                                    <div class="avatars">
-                                        <a href="#" data-tooltip="Person 1" data-placement="top">
-                                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/hobbit_avatar1.png"
-                                                alt="avatar1" />
-                                        </a>
-                                        <a href="#" data-tooltip="Person 2" data-placement="top">
-                                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/hobbit_avatar2.png"
-                                                alt="avatar2" />
-                                        </a>
-                                        <a href="#" data-tooltip="Person 3" data-placement="top">
-                                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/hobbit_avatar3.png"
-                                                alt="avatar3" />
-                                        </a>
-                                    </div> <!-- end avatars -->
-                                </div>
+                <div class="movie_card" id="bright">
+                    <div class="info_section">
+                        <div class="movie_header">
+                            <img :src="imgAPI + dados.poster_path" alt="cover" class="locandina" />
+                            <h1>{{ dados.title }}</h1>
+                            <h4>({{ release_date }})</h4>
+                            <span class="minutes">{{ dados.runtime }} min</span>
+                            <div class="type" v-for="item in dados.genres" :key="item.id">
+                                {{ item.name }}
                             </div>
-                        </div> <!-- end description -->
-                    </div> <!-- end container -->
-                </div> <!-- end movie-card -->
+                            <div class="text-warning mt-2">
+                                <font-awesome-icon icon="fa-solid fa-star text-warning" />
+                                {{ dados.vote_average }}
+                            </div>
+                        </div>
+                        <div class="movie_desc">
+                            <p class="text">
+                                {{ dados.overview }}
+                            </p>
+                        </div>
+                    </div>
+                    <img :src="imgAPI + dados.backdrop_path" alt="cover" class="blur_back" />
+                </div>
             </div>
         </header-layout>
     </main>
@@ -66,6 +46,7 @@ export default {
             apiKey: import.meta.env.VITE_API_KEY,
             language: import.meta.env.VITE_LANG,
             dados: {},
+            release_date: '',
         }
     },
     created() {
@@ -79,6 +60,7 @@ export default {
             await axios.get(this.urlAPI + '/' + this.id + '?' + this.apiKey + this.language)
                 .then(response => {
                     this.dados = response.data;
+                    this.release_date = this.dados.release_date.slice(0, 4);
                 })
                 .catch(error => {
                     console.log(error)
