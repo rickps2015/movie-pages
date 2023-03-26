@@ -6,7 +6,7 @@
 
 html, body {
   margin: 0;
-  background: black;
+  background: var(--vt-c-black);
   font-family: "Montserrat", helvetica, arial, sans-serif;
   font-size: 14px;
   font-weight: 400;
@@ -34,7 +34,7 @@ html, body {
   background-blend-mode: multiply;
   z-index: 2;
   border-radius: 10px;
-  background: linear-gradient(to top, #000000 30%, transparent 150%);
+  background: linear-gradient(to top, var(--vt-c-black) 30%, transparent 150%);
   display: inline-grid;
 }
 .movie_card .info_section .movie_header {
@@ -45,24 +45,24 @@ html, body {
   margin-top: 85px;
 }
 .movie_card .info_section .movie_header h1 {
-  color: #fff;
+  color: var(--vt-c-white);
   font-weight: 400;
 }
 .movie_card .info_section .movie_header h4 {
-  color: #9ac7fa;
+  color: var(--vt-c-aqua);
   font-weight: 400;
 }
 .movie_card .info_section .movie_header .minutes {
   display: inline-block;
   margin-top: 10px;
-  color: #fff;
+  color: var(--vt-c-white);
   padding: 5px;
   border-radius: 5px;
-  border: 1px solid rgba(255, 255, 255, 0.13);
+  border: 1px solid var(--vt-c-indigo);
 }
 .movie_card .info_section .movie_header .type {
   display: inline-block;
-  color: #cee4fd;
+  color: var(--vt-c-aqua);
   margin-left: 10px;
 }
 .movie_card .info_section .movie_header .locandina {
@@ -70,7 +70,7 @@ html, body {
   float: left;
   margin-right: 20px;
   height: 300px;
-  box-shadow: 0 0 20px -10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 20px -10px var(--vt-c-black);
 }
 .movie_card .info_section .movie_desc {
   padding: 0 25px 25px 25px;
@@ -78,32 +78,8 @@ html, body {
   width: 100%;
 }
 .movie_card .info_section .movie_desc .text {
-  color: #cfd6e1;
+  color: var(--vt-c-blue-clean);
   text-align: justify;
-}
-.movie_card .info_section .movie_social {
-  height: 10%;
-  padding-left: 15px;
-  padding-bottom: 20px;
-}
-.movie_card .info_section .movie_social ul {
-  list-style: none;
-  padding: 0;
-}
-.movie_card .info_section .movie_social ul li {
-  display: inline-block;
-  color: rgba(255, 255, 255, 0.4);
-  transition: color 0.3s;
-  transition-delay: 0.15s;
-  margin: 0 10px;
-}
-.movie_card .info_section .movie_social ul li:hover {
-  transition: color 0.3s;
-  color: rgba(255, 255, 255, 0.8);
-}
-.movie_card .info_section .movie_social ul li i {
-  font-size: 19px;
-  cursor: pointer;
 }
 .movie_card .blur_back {
   position: absolute;
