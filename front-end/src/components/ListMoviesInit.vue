@@ -1,7 +1,10 @@
 <template>
     <main>
         <div class="container-fluid p-0 mt-2">
-            <div class="row justify-content-center">
+            <template v-if="loading">
+                <font-awesome-icon class="ms-4 mt-2 text-danger" icon="fa-solid fa-spinner" spin style="font-size: 2rem" />
+            </template>
+            <div v-if="!loading" class="row justify-content-center">
                 <div class="col-12">
                     <!-- Filmes - Melhores Avaliados -->
                     <div id="myCarousel" class="carousel carousel_top_rated slide container mt-5" data-bs-ride="carousel">
@@ -34,7 +37,7 @@
                                             <img class="rounded-4" :src="imgAPI + item.poster_path" :alt="item.title"
                                                 :title="item.title" style="width: 200px;" /><br>
                                             <span class="text-warning">
-                                                <font-awesome-icon icon="fa-solid fa-star text-warning" />
+                                                <font-awesome-icon icon="fa-solid fa-star" />
                                                 {{ item.vote_average }}
                                             </span>
                                         </router-link>
@@ -114,7 +117,7 @@
                                             <img class="rounded-4" :src="imgAPI + item.poster_path" :alt="item.title"
                                                 :title="item.title" style="width: 200px;" /><br>
                                             <span class="text-warning">
-                                                <font-awesome-icon icon="fa-solid fa-star text-warning" />
+                                                <font-awesome-icon icon="fa-solid fa-star" />
                                                 {{ item.vote_average }}
                                             </span>
                                         </router-link>
@@ -318,6 +321,7 @@ export default {
             tv_top_rated: [],
             tv_popular: [],
             tv_airing_today: [],
+            loading: false,
         }
     },
     mounted() {
@@ -325,6 +329,7 @@ export default {
     },
     methods: {
         async loadList() {
+            this.loading = true;
             // Filmes
             await axios.get(this.urlAPI + 'top_rated?' + this.apiKey + this.language)
                 .then(response => {
@@ -376,6 +381,7 @@ export default {
                 .catch(error => {
                     console.log(error)
                 })
+            this.loading = false;
         },
         nextSlide(tipo, name) {
             const carousel = document.querySelector('.carousel_' + name);
