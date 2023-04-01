@@ -101,7 +101,7 @@
                                 </div>
                                 <div class="team-content">
                                     <h3 class="name">Mary Huntley</h3>
-                                    <h4 class="title">Web Developer</h4>
+                                    <h4 class="title">Web Developer Design</h4>
                                 </div>
                                 <ul class="social">
                                     <li><a href="https://codepen.io/collection/XdWJOQ/" class="fa fa-facebook"
