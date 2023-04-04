@@ -21,6 +21,11 @@ const router = createRouter({
       path: '/details/:id',
       name: 'details',
       component: () => import('../components/MovieDetails.vue')
+    },
+    {
+      path: '/page-search',
+      name: 'PageSearch',
+      component: () => import('../views/PageSearch.vue')
     }
   ]
 })

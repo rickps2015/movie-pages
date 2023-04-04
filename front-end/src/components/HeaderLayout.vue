@@ -9,8 +9,8 @@
                                     to="/"><font-awesome-icon icon="fa-solid fa-house" /></router-link></div>
                             <div class="col-auto">
                                 <div class="btn-group m-0 p-0">
-                                    <input type="text" class="form-control rounded-pill border-0 mx-1" placeholder="Search"
-                                        style="width: 30rem">
+                                    <input type="text" class="form-control rounded-pill border-0 mx-1" placeholder="Search" v-model="input_pesquisa"
+                                        style="width: 30rem" @keypress.enter="pesquisa">
                                 </div>
                             </div>
                             <div class="col-auto"><router-link class="fw-bold" style="font-size: 1.2rem;"
@@ -35,6 +35,7 @@ export default {
     data() {
         return {
             theme: '',
+            input_pesquisa: '',
         }
     },
     mounted() {
@@ -43,6 +44,9 @@ export default {
         document.documentElement.setAttribute('data-theme', localTheme); // updates the data-theme attribute
     },
     methods: {
+        pesquisa(){
+            this.$router.push({ name: 'PageSearch', state: { dados: this.input_pesquisa } });
+        },
         toggleTheme() {
             this.theme = this.theme == 'darkMode' ? '' : 'darkMode'; //toggles theme value
             document.documentElement.setAttribute('data-theme', this.theme); // updates the data-theme attribute

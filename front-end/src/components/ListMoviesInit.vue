@@ -45,6 +45,7 @@
                                 </template>
                             </div>
                         </div>
+                        <Pagination></Pagination>
                     </div>
                     <!-- Filmes - Mais Populares -->
                     <div id="myCarousel" class="carousel carousel_popular slide container mt-5" data-bs-ride="carousel">
@@ -304,9 +305,13 @@
 </style>
 
 <script>
-import axios from 'axios'
+import axios from 'axios';
+import Pagination from '../components/Pagination.vue';
 export default {
     nama: 'ListMoviesInit',
+    components: {
+        Pagination
+    },
     data() {
         return {
             imgAPI: import.meta.env.VITE_API_IMAGE,
