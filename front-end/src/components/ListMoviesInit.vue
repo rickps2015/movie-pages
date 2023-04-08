@@ -170,7 +170,7 @@
 
 
 
-                    <!-- Comentados TV -->
+                    <!-- Comentados TVs -->
                     <!-- Tv - Melhores Avaliados -->
                     <!-- <div id="myCarousel" class="carousel carousel_tv_top_rated slide container mt-5"
                         data-bs-ride="carousel">
