@@ -45,7 +45,8 @@ export default {
     },
     methods: {
         pesquisa(){
-            this.$router.push({ name: 'PageSearch', state: { dados: this.input_pesquisa } });
+            this.$router.push({ name: 'PageSearch', state: { dados: this.input_pesquisa} });
+            // console.log(this.input_pesquisa);
         },
         toggleTheme() {
             this.theme = this.theme == 'darkMode' ? '' : 'darkMode'; //toggles theme value
