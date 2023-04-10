@@ -48,7 +48,7 @@ export default {
             this.$router.push({ name: 'PageSearch', state: { dados: this.input_pesquisa} });
             // if(this.$route.path == 'PageSearch'){
             //     this.$router.push({ 
-            //         to: this.$route.path,
+            //         to: this.$router.replace(this.$route.path),
             //         state: { dados: this.input_pesquisa}, 
             //     });
             // }
