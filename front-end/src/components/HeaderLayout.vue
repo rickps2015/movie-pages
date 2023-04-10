@@ -46,6 +46,12 @@ export default {
     methods: {
         pesquisa(){
             this.$router.push({ name: 'PageSearch', state: { dados: this.input_pesquisa} });
+            // if(this.$route.path == 'PageSearch'){
+            //     this.$router.push({ 
+            //         to: this.$router.replace(this.$route.path),
+            //         state: { dados: this.input_pesquisa}, 
+            //     });
+            // }
             // console.log(this.input_pesquisa);
         },
         toggleTheme() {
