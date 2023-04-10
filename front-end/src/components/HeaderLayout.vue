@@ -1,37 +1,37 @@
 <template>
-    <main>
-        <div class="container-fluid p-0">
-            <div class="row p-0 m-0 bg-color-primary justify-content-center">
-                <div class="col-12 py-3">
-                    <nav class="container-fluid">
-                        <div class="row justify-content-center">
-                            <div class="col-auto"><router-link class="fw-bold" style="font-size: 1.2rem;"
-                                    to="/"><font-awesome-icon icon="fa-solid fa-house" /></router-link></div>
-                            <div class="col-auto">
-                                <div class="btn-group m-0 p-0">
-                                    <input type="text" class="form-control rounded-pill border-0 mx-1" placeholder="Search" v-model="input_pesquisa"
-                                        style="width: 30rem" @keypress.enter="pesquisa">
-                                </div>
-                            </div>
-                            <div class="col-auto"><router-link class="fw-bold" style="font-size: 1.2rem;"
-                                    to="/about">About</router-link></div>
-                            <div class="col-auto" style="font-size: 1.2rem;">
-                                <button class="themes" @click="toggleTheme" aria-label="Toggle themes">
-                                        <span v-if="theme == 'darkMode'"><font-awesome-icon icon="fa-solid fa-moon" class="text-danger" /></span>
-                                        <span v-else><font-awesome-icon icon="fa-solid fa-sun" class="text-warning" /></span>
-                                    </button>
+    <div class="container-fluid cabecalho-fixo p-0">
+        <div class="row p-0 m-0 bg-color-primary justify-content-center">
+            <div class="col-12 py-3">
+                <nav class="container-fluid">
+                    <div class="row justify-content-center">
+                        <div class="col-auto"><router-link class="fw-bold" style="font-size: 1.2rem;"
+                                to="/"><font-awesome-icon icon="fa-solid fa-house" /></router-link></div>
+                        <div class="col-auto">
+                            <div class="btn-group m-0 p-0">
+                                <input type="text" class="form-control rounded-pill border-0 mx-1" placeholder="Search"
+                                    v-model="input_pesquisa" style="width: 30rem" @keypress.enter="pesquisa">
                             </div>
                         </div>
-                    </nav>
-                </div>
+                        <div class="col-auto"><router-link class="fw-bold" style="font-size: 1.2rem;"
+                                to="/about">About</router-link></div>
+                        <div class="col-auto" style="font-size: 1.2rem;">
+                            <button class="themes" @click="toggleTheme" aria-label="Toggle themes">
+                                <span v-if="theme == 'darkMode'"><font-awesome-icon icon="fa-solid fa-moon"
+                                        class="text-danger" /></span>
+                                <span v-else><font-awesome-icon icon="fa-solid fa-sun" class="text-warning" /></span>
+                            </button>
+                        </div>
+                    </div>
+                </nav>
             </div>
         </div>
-    </main>
+    </div>
     <slot></slot>
 </template>
 
 <script>
 export default {
+    emits: ['dadosRecebidos'],
     data() {
         return {
             theme: '',
@@ -44,15 +44,12 @@ export default {
         document.documentElement.setAttribute('data-theme', localTheme); // updates the data-theme attribute
     },
     methods: {
-        pesquisa(){
-            this.$router.push({ name: 'PageSearch', state: { dados: this.input_pesquisa} });
-            // if(this.$route.path == 'PageSearch'){
-            //     this.$router.push({ 
-            //         to: this.$router.replace(this.$route.path),
-            //         state: { dados: this.input_pesquisa}, 
-            //     });
-            // }
-            // console.log(this.input_pesquisa);
+        pesquisa() {
+            if (this.$route.path == '/page-search') {
+                this.$emit('dadosRecebidos', this.input_pesquisa); // Emite um evento com os dados
+            } else {
+                this.$router.push({ name: 'PageSearch', state: { dados: this.input_pesquisa } }); // Redireciona para a rota com os dados
+            }
         },
         toggleTheme() {
             this.theme = this.theme == 'darkMode' ? '' : 'darkMode'; //toggles theme value

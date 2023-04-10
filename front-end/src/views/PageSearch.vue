@@ -1,6 +1,6 @@
 <template>
     <main>
-        <header-layout>
+        <header-layout @dadosRecebidos="receberDados">
             <div class="container-fluid p-0">
                 <div class="row">
                     <template v-for="item in dados.results" :key="item.id">
@@ -16,9 +16,9 @@
                         </div>
                     </template>
                 </div>
-                {{ input_pesquisa }}
+                <!-- {{ input_pesquisa }}
                 Teste: <br>
-                {{ dados }}
+                {{ dados }} -->
             </div>
         </header-layout>
     </main>
@@ -42,11 +42,11 @@ export default {
         }
     },
     mounted() {
+        this.input_pesquisa = history.state.dados || {};
         this.pesquisa();
     },
     methods: {
         async pesquisa() {
-            this.input_pesquisa = history.state.dados || {};
             this.loading = true;
             await axios.get(this.urlAPISearchMovie + '?' + this.apiKey + this.language + '&query=' + this.input_pesquisa)
                 .then(response => {
@@ -57,6 +57,10 @@ export default {
                 });
             this.loading = false;
         },
+        receberDados(dados) {
+            this.input_pesquisa = dados;
+            this.pesquisa();
+        }
     },
 }
 </script>

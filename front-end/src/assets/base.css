@@ -2,6 +2,7 @@
 :root {
   --vt-c-white: #FFFFFF;
   --vt-c-white-soft: #f8f8f8;
+  --vt-c-dark-white: #4d4a4a;
   --vt-c-white-mute: #f2f2f2;
 
   --vt-c-black: #171717f1;
@@ -31,6 +32,7 @@
 /* semantic color variables for this project */
 :root {
   --color-background: var(--vt-c-white);
+  --color-background-2: var(--vt-c-black-soft);
   --color-background-soft: var(--vt-c-white-soft);
   --color-background-mute: var(--vt-c-white-mute);
 
@@ -45,6 +47,7 @@
 
 [data-theme="darkMode"] {
     --color-background: var(--vt-c-black);
+    --color-background-2: var(--vt-c-black);
     --color-background-soft: var(--vt-c-black-soft);
     --color-background-mute: var(--vt-c-black-mute);
 

@@ -45,7 +45,6 @@
                                 </template>
                             </div>
                         </div>
-                        <Pagination></Pagination>
                     </div>
                     <!-- Filmes - Mais Populares -->
                     <div id="myCarousel" class="carousel carousel_popular slide container mt-5" data-bs-ride="carousel">

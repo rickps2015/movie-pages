@@ -15,7 +15,7 @@ a,
 }
 
 .bg-color-primary {
-  background-color: var(--vt-c-black);
+  background-color: var(--color-background-2);
 }
 
 .card,.card-body {
@@ -28,6 +28,17 @@ a,
   border: 0;
 }
 
+.cabecalho-fixo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+main {
+  padding-top: 64px; /* altura do cabeçalho fixo, ajuste de acordo com o seu caso */
+}
 
 @media (hover: hover) {
   a:hover {
