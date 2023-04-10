@@ -27,7 +27,10 @@
                             </p>
                         </div>
                     </div>
-                    <img :src="imgAPI + dados.backdrop_path" alt="cover" class="blur_back" />
+                    <img v-if="dados.backdrop_path != null && dados.backdrop_path != undefined" :src="imgAPI + dados.backdrop_path" alt="cover"
+                        class="blur_back" />
+                    <img v-else :src="imgAPI + dados.poster_path" alt="cover"
+                        class="blur_back" />
                 </div>
             </div>
         </header-layout>
