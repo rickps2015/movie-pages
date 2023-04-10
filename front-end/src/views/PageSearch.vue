@@ -2,19 +2,27 @@
     <main>
         <header-layout @dadosRecebidos="receberDados">
             <div class="container-fluid p-0">
-                <div class="row">
-                    <template v-for="item in dados.results" :key="item.id">
-                        <div v-if="item.poster_path != null" class="col-auto py-2 px-1 movie-img">
-                            <router-link :to="{ name: 'details', params: { id: item.id } }">
-                                <img class="rounded-4" :src="imgAPI + item.poster_path" :alt="item.title"
-                                    :title="item.title" style="width: 200px;" /><br>
-                                <span class="text-warning">
-                                    <font-awesome-icon icon="fa-solid fa-star" />
-                                    {{ item.vote_average }}
-                                </span>
-                            </router-link>
+                <div class="row justify-content-center">
+                    <div class="col-11">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <template v-for="item in dados.results" :key="item.id">
+                                        <div v-if="item.poster_path != null" class="col-auto py-2 px-1 movie-img">
+                                            <router-link :to="{ name: 'details', params: { id: item.id } }">
+                                                <img class="rounded-4" :src="imgAPI + item.poster_path" :alt="item.title"
+                                                    :title="item.title" style="width: 200px;" /><br>
+                                                <span class="text-warning">
+                                                    <font-awesome-icon icon="fa-solid fa-star" />
+                                                    {{ item.vote_average }}
+                                                </span>
+                                            </router-link>
+                                        </div>
+                                    </template>
+                                </div>
+                            </div>
                         </div>
-                    </template>
+                    </div>
                 </div>
                 <!-- {{ input_pesquisa }}
                 Teste: <br>
