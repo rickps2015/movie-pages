@@ -35,7 +35,7 @@
                                     <div v-if="item.poster_path != null" class="col-auto py-2 px-1 movie-img">
                                         <router-link :to="{ name: 'details', params: { id: item.id } }">
                                             <img class="rounded-4" :src="imgAPI + item.poster_path" :alt="item.title"
-                                                :title="item.title" style="width: 200px;" /><br>
+                                                :title="item.title" style="width: 200px; height: 300px;" /><br>
                                             <span class="text-warning">
                                                 <font-awesome-icon icon="fa-solid fa-star" />
                                                 {{ item.vote_average }}
@@ -75,7 +75,7 @@
                                     <div v-if="item.poster_path != null" class="col-auto px-1 movie-img py-2">
                                         <router-link :to="{ name: 'details', params: { id: item.id } }">
                                             <img class="rounded-4" :src="imgAPI + item.poster_path" :alt="item.title"
-                                                :title="item.title" style="width: 200px;" /><br>
+                                                :title="item.title" style="width: 200px; height: 300px;" /><br>
                                             <span class="text-warning">
                                                 <font-awesome-icon icon="fa-solid fa-star text-warning" />
                                                 {{ item.vote_average }}
@@ -115,7 +115,7 @@
                                     <div v-if="item.poster_path != null" class="col-auto px-1 movie-img py-2">
                                         <router-link :to="{ name: 'details', params: { id: item.id } }">
                                             <img class="rounded-4" :src="imgAPI + item.poster_path" :alt="item.title"
-                                                :title="item.title" style="width: 200px;" /><br>
+                                                :title="item.title" style="width: 200px; height: 300px;" /><br>
                                             <span class="text-warning">
                                                 <font-awesome-icon icon="fa-solid fa-star" />
                                                 {{ item.vote_average }}
@@ -155,7 +155,7 @@
                                     <div v-if="item.poster_path != null" class="col-auto px-1 movie-img py-2">
                                         <router-link :to="{ name: 'details', params: { id: item.id } }">
                                             <img class="rounded-4" :src="imgAPI + item.poster_path" :alt="item.title"
-                                                :title="item.title" style="width: 200px;" /><br>
+                                                :title="item.title" style="width: 200px; height: 300px;" /><br>
                                             <span class="text-warning">
                                                 <font-awesome-icon icon="fa-solid fa-star text-warning" />
                                                 {{ item.vote_average }}
@@ -200,7 +200,7 @@
                                     <div v-if="item.poster_path != null" class="col-auto px-1 movie-img py-2">
                                         <router-link :to="{ name: 'details', params: { id: item.id } }">
                                             <img class="rounded-4" :src="imgAPI + item.poster_path" :alt="item.title"
-                                                :title="item.name" style="width: 200px;" /><br>
+                                                :title="item.name" style="width: 200px; height: 300px;" /><br>
                                             <span class="text-warning">
                                                 <font-awesome-icon icon="fa-solid fa-star text-warning" />
                                                 {{ item.vote_average }}
@@ -241,7 +241,7 @@
                                     <div v-if="item.poster_path != null" class="col-auto px-1 movie-img py-2">
                                         <router-link :to="{ name: 'details', params: { id: item.id } }">
                                         <img class="rounded-4" :src="imgAPI + item.poster_path" :alt="item.title"
-                                            :title="item.name" style="width: 200px;" /><br>
+                                            :title="item.name" style="width: 200px; height: 300px;" /><br>
                                         <span class="text-warning">
                                             <font-awesome-icon icon="fa-solid fa-star text-warning" />
                                             {{ item.vote_average }}
@@ -281,7 +281,7 @@
                                     <div v-if="item.poster_path != null" class="col-auto px-1 movie-img py-2">
                                         <router-link :to="{ name: 'details', params: { id: item.id } }">
                                         <img class="rounded-4" :src="imgAPI + item.poster_path" :alt="item.title"
-                                            :title="item.name" style="width: 200px;" /><br>
+                                            :title="item.name" style="width: 200px; height: 300px;" /><br>
                                         <span class="text-warning">
                                             <font-awesome-icon icon="fa-solid fa-star text-warning" />
                                             {{ item.vote_average }}

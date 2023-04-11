@@ -8,6 +8,7 @@
   --vt-c-black: #171717f1;
   --vt-c-black-soft: #222222;
   --vt-c-black-mute: #282828;
+  --vt-c-black-2: #171717;
 
   --vt-c-red: #b31818;
   --vt-c-yellow: #bd9700e7;
@@ -47,7 +48,7 @@
 
 [data-theme="darkMode"] {
     --color-background: var(--vt-c-black);
-    --color-background-2: var(--vt-c-black);
+    --color-background-2: var(--vt-c-black-2);
     --color-background-soft: var(--vt-c-black-soft);
     --color-background-mute: var(--vt-c-black-mute);
 

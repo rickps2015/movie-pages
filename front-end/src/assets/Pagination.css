@@ -8,17 +8,16 @@ ul.pagination {
 ul.pagination li {display: inline;}
 
 ul.pagination li a {
-    color: black;
+    color: var(--vt-c-red);
+    background-color: var(--color-background-soft);
     float: left;
     padding: 8px 16px;
     text-decoration: none;
-    border-radius: 5px;
 }
 
-ul.pagination li.page-item a.active {
+ul.pagination li a.active {
     background-color: #4CAF50;
     color: var(--vt-c-red);
-    border-radius: 5px;
 }
 
 ul.pagination li a:hover:not(.active) {background-color: #ddd;}
