@@ -62,9 +62,10 @@ export default {
             language: import.meta.env.VITE_LANG,
         }
     },
-    mounted() {
+    created() {
         this.page = 0;
-        this.input_pesquisa = history.state.dados || {};
+        if (history.state.dados == undefined) this.input_pesquisa = localStorage.getItem('input_pesquisa');
+        else this.input_pesquisa = history.state.dados || {};
         this.pesquisa();
     },
     methods: {

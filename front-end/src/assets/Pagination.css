@@ -9,15 +9,15 @@ ul.pagination li {display: inline;}
 
 ul.pagination li a {
     color: var(--vt-c-red);
-    background-color: var(--color-background-soft);
+    background-color: var(--color-background-pagination);
     float: left;
     padding: 8px 16px;
     text-decoration: none;
 }
 
 ul.pagination li a.active {
-    background-color: #4CAF50;
     color: var(--vt-c-red);
+    background-color: var(--color-background-2);
 }
 
 ul.pagination li a:hover:not(.active) {background-color: #ddd;}
