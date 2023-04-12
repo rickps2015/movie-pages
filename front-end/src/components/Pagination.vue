@@ -7,7 +7,7 @@
                 </a>
             </li>
             <li class="page-item" v-for="page in pages" :key="page" :class="{ active: currentPage === page }">
-                <a class="page-link rounded-circle" @click="goToPage(page)" href="#">{{ page }}</a>
+                <a class="page-link rounded-circle fw-bolder" @click="goToPage(page)" href="#">{{ page }}</a>
             </li>
             <li class="page-item" :class="{ disabled: currentPage === totalPages }">
                 <a class="page-link rounded-circle" @click="goToPage(currentPage + 1)" href="#" aria-label="Next">

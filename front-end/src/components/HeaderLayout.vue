@@ -45,6 +45,7 @@ export default {
     },
     methods: {
         pesquisa() {
+            localStorage.setItem('input_pesquisa', this.input_pesquisa); // stores input_pesquisa value in local storage
             if (this.$route.path == '/page-search') {
                 this.$emit('dadosRecebidos', this.input_pesquisa); // Emite um evento com os dados
             } else {
