@@ -8,6 +8,8 @@
 
 <script>
 import ListMoviesInit from '../components/ListMoviesInit.vue'
+import { mapWritableState } from 'pinia';
+import {stateCustom} from '../stores/stateCustom';
 export default {
     components: {
         ListMoviesInit
@@ -16,6 +18,9 @@ export default {
         return {
             
         }
+    },
+    computed: {
+        ...mapWritableState(stateCustom, ['input_pesquisa'])
     },
     mounted() {
         

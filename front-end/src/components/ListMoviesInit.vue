@@ -306,7 +306,9 @@
 <script>
 import axios from 'axios';
 import Pagination from '../components/Pagination.vue';
-export default {
+import { defineComponent } from 'vue';
+
+export default defineComponent({
     nama: 'ListMoviesInit',
     components: {
         Pagination
@@ -406,5 +408,5 @@ export default {
 
         },
     },
-}
+})
 </script>

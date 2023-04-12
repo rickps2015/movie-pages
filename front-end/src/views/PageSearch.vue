@@ -1,6 +1,7 @@
 <template>
     <main>
-        <header-layout @dadosRecebidos="receberDados">
+        <header-layout>
+            {{ input_pesquisa }}
             <div class="container p-0 mt-2">
                 <template v-if="loading">
                     <font-awesome-icon class="ms-4 mt-2 text-danger" icon="fa-solid fa-spinner" spin
@@ -46,16 +47,16 @@
 <script>
 import axios from 'axios';
 import Pagination from '../components/Pagination.vue';
+import { mapWritableState } from 'pinia';
+import {stateCustom} from '../stores/stateCustom';
 export default {
     components: { Pagination },
-    emits: ['dadosRecebidos'],
     name: "PageSearch",
     data() {
         return {
             loading: false,
             page: 0,
             dados: {},
-            input_pesquisa: '',
             imgAPI: import.meta.env.VITE_API_IMAGE,
             urlAPISearchMovie: import.meta.env.VITE_API_SEARCH_MOVIE,
             apiKey: import.meta.env.VITE_API_KEY,
@@ -64,9 +65,13 @@ export default {
     },
     created() {
         this.page = 0;
-        if (history.state.dados == undefined) this.input_pesquisa = localStorage.getItem('input_pesquisa');
-        else this.input_pesquisa = history.state.dados || {};
+        // this.input_pesquisa = stateCustom.input_pesquisa;
+        // if (history.state.dados == undefined) this.input_pesquisa = localStorage.getItem('input_pesquisa');
+        // else this.input_pesquisa = history.state.dados || {};
         this.pesquisa();
+    },
+    computed: {
+        ...mapWritableState(stateCustom, ['input_pesquisa'])
     },
     methods: {
         async pesquisa() {
@@ -85,10 +90,6 @@ export default {
                     console.log(error);
                 });
             this.loading = false;
-        },
-        receberDados(dados) {
-            this.input_pesquisa = dados;
-            this.pesquisa();
         },
         async alterarpage(page) {
             this.page = page;
