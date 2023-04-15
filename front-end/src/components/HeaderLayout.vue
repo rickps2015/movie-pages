@@ -30,17 +30,12 @@
 </template>
 
 <script>
-import { mapWritableState } from 'pinia';
-import {stateCustom} from '../stores/stateCustom';
-
 export default {
     data() {
         return {
             theme: '',
+            input_pesquisa: '',
         }
-    },
-    computed: {
-        ...mapWritableState(stateCustom, ['input_pesquisa'])
     },
     mounted() {
         let localTheme = localStorage.getItem('theme'); //gets stored theme value if any
@@ -49,6 +44,7 @@ export default {
     },
     methods: {
         pesquisa() {
+            localStorage.setItem('input_pesquisa', this.input_pesquisa);
             this.$router.push({ name: 'PageSearch' });
         },
         toggleTheme() {

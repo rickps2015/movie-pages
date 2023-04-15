@@ -1,7 +1,6 @@
 <template>
     <main>
         <header-layout>
-            {{ input_pesquisa }}
             <div class="container p-0 mt-2">
                 <template v-if="loading">
                     <font-awesome-icon class="ms-4 mt-2 text-danger" icon="fa-solid fa-spinner" spin
@@ -47,8 +46,6 @@
 <script>
 import axios from 'axios';
 import Pagination from '../components/Pagination.vue';
-import { mapWritableState } from 'pinia';
-import {stateCustom} from '../stores/stateCustom';
 export default {
     components: { Pagination },
     name: "PageSearch",
@@ -61,17 +58,13 @@ export default {
             urlAPISearchMovie: import.meta.env.VITE_API_SEARCH_MOVIE,
             apiKey: import.meta.env.VITE_API_KEY,
             language: import.meta.env.VITE_LANG,
+            input_pesquisa: '',
         }
     },
     created() {
         this.page = 0;
-        // this.input_pesquisa = stateCustom.input_pesquisa;
-        // if (history.state.dados == undefined) this.input_pesquisa = localStorage.getItem('input_pesquisa');
-        // else this.input_pesquisa = history.state.dados || {};
+        this.input_pesquisa = localStorage.getItem('input_pesquisa');
         this.pesquisa();
-    },
-    computed: {
-        ...mapWritableState(stateCustom, ['input_pesquisa'])
     },
     methods: {
         async pesquisa() {
