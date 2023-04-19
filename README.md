@@ -4,22 +4,9 @@ Este é um pequeno projeto de um site de apresentação de filmes, o mesmo utili
 A API é gratuita, precisando apenas de um token key para que seja possivel realizar as requisições, para mais informações de como obter um token, basta acessar o site oficial do <a href="https://developers.themoviedb.org/3/getting-started/introduction" target="_blank">*'themoviedb'*</a>
 
 ## Instalações
-Necessário instalar Node.js
-### Instalar Vue CLI
+### Instalar dependências
 ```
-npm install -g @vue/cli
-```
-### Instalar Vue.js
-```
-npm install vue
-```
-### Instalar Vue Router
-```
-npm install vue-router
-```
-### Instalar Bootstrap
-```
-npm install bootstrap
+npm install 
 ```
 ## Executar o projeto
 ```
