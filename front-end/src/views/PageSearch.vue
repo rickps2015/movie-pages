@@ -84,6 +84,7 @@ export default {
                 });
             this.loading = false;
         },
+        // Alterar a página
         async alterarpage(page) {
             this.page = page;
             this.pesquisa();
