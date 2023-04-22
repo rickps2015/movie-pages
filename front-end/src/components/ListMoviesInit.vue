@@ -296,7 +296,7 @@
             </div>
         </div>
     </main>
-    <slot></slot>
+    <!-- <slot></slot> -->
 </template>
 
 <style scope>
