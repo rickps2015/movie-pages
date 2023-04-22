@@ -4,14 +4,17 @@
             <div class="col-12 py-3">
                 <nav class="container-fluid">
                     <div class="row justify-content-center">
+                        <!-- Icone e rota Home -->
                         <div class="col-auto"><router-link class="fw-bold" style="font-size: 1.2rem;"
                                 to="/"><font-awesome-icon icon="fa-solid fa-house" /></router-link></div>
+                        <!-- Campo de pesquisa -->
                         <div class="col-auto">
                             <div class="btn-group m-0 p-0">
                                 <input type="text" class="form-control rounded-pill border-0 mx-1" placeholder="Search"
                                     v-model="input_pesquisa" style="width: 30rem" @keypress.enter="pesquisa">
                             </div>
                         </div>
+                        <!-- Trocar de tema (Dark-Light) -->
                         <div class="col-auto"><router-link class="fw-bold" style="font-size: 1.2rem;"
                                 to="/about">About</router-link></div>
                         <div class="col-auto" style="font-size: 1.2rem;">
