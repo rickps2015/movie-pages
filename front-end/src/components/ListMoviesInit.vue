@@ -6,46 +6,6 @@
             </template>
             <div v-if="!loading" class="row justify-content-center">
                 <div class="col-12">
-                    <!-- Filmes - Melhores Avaliados -->
-                    <div id="myCarousel" class="carousel carousel_top_rated slide container mt-5" data-bs-ride="carousel">
-                        <div class="row justify-content-between">
-                            <div class="col-auto">
-                                <h3 class="text-start">Filmes Melhores Avaliados</h3>
-                            </div>
-                            <div class="col-auto">
-                                <div class="row">
-                                    <div class="col-auto px-0">
-                                        <button class="btn-prev-next" type="button" data-bs-target="#myCarousel"
-                                            data-bs-slide="prev" @click="nextSlide(false, 'top_rated')">
-                                            <font-awesome-icon icon="fa fa-solid fa-chevron-left" />
-                                        </button>
-                                    </div>
-                                    <div class="col-auto px-0">
-                                        <button class="btn-prev-next" type="button" data-bs-target="#myCarousel"
-                                            data-bs-slide="next" @click="nextSlide(true, 'top_rated')">
-                                            <font-awesome-icon icon="fa fa-solid fa-chevron-right" />
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-inner carousel-inner_top_rated">
-                            <div class="carousel-item carousel-item_top_rated active">
-                                <template v-for="item in top_rated.results" :key="item.id">
-                                    <div v-if="item.poster_path != null" class="col-auto py-2 px-1 movie-img">
-                                        <router-link :to="{ name: 'details', params: { id: item.id } }">
-                                            <img class="rounded-4" :src="imgAPI + item.poster_path" :alt="item.title"
-                                                :title="item.title" style="width: 200px; height: 300px;" /><br>
-                                            <span class="text-warning">
-                                                <font-awesome-icon icon="fa-solid fa-star" />
-                                                {{ item.vote_average }}
-                                            </span>
-                                        </router-link>
-                                    </div>
-                                </template>
-                            </div>
-                        </div>
-                    </div>
                     <!-- Filmes - Mais Populares -->
                     <div id="myCarousel" class="carousel carousel_popular slide container mt-5" data-bs-ride="carousel">
                         <div class="row justify-content-between">
@@ -158,6 +118,46 @@
                                                 :title="item.title" style="width: 200px; height: 300px;" /><br>
                                             <span class="text-warning">
                                                 <font-awesome-icon icon="fa-solid fa-star text-warning" />
+                                                {{ item.vote_average }}
+                                            </span>
+                                        </router-link>
+                                    </div>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Filmes - Melhores Avaliados -->
+                    <div id="myCarousel" class="carousel carousel_top_rated slide container mt-5" data-bs-ride="carousel">
+                        <div class="row justify-content-between">
+                            <div class="col-auto">
+                                <h3 class="text-start">Filmes Melhores Avaliados</h3>
+                            </div>
+                            <div class="col-auto">
+                                <div class="row">
+                                    <div class="col-auto px-0">
+                                        <button class="btn-prev-next" type="button" data-bs-target="#myCarousel"
+                                            data-bs-slide="prev" @click="nextSlide(false, 'top_rated')">
+                                            <font-awesome-icon icon="fa fa-solid fa-chevron-left" />
+                                        </button>
+                                    </div>
+                                    <div class="col-auto px-0">
+                                        <button class="btn-prev-next" type="button" data-bs-target="#myCarousel"
+                                            data-bs-slide="next" @click="nextSlide(true, 'top_rated')">
+                                            <font-awesome-icon icon="fa fa-solid fa-chevron-right" />
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-inner carousel-inner_top_rated">
+                            <div class="carousel-item carousel-item_top_rated active">
+                                <template v-for="item in top_rated.results" :key="item.id">
+                                    <div v-if="item.poster_path != null" class="col-auto py-2 px-1 movie-img">
+                                        <router-link :to="{ name: 'details', params: { id: item.id } }">
+                                            <img class="rounded-4" :src="imgAPI + item.poster_path" :alt="item.title"
+                                                :title="item.title" style="width: 200px; height: 300px;" /><br>
+                                            <span class="text-warning">
+                                                <font-awesome-icon icon="fa-solid fa-star" />
                                                 {{ item.vote_average }}
                                             </span>
                                         </router-link>

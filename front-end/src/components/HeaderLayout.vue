@@ -10,7 +10,7 @@
                         <!-- Campo de pesquisa -->
                         <div class="col-auto">
                             <div class="btn-group m-0 p-0">
-                                <input type="text" class="form-control rounded-pill border-0 mx-1" placeholder="Search"
+                                <input type="text" class="form-control rounded-pill border-0 mx-1" placeholder="Search Movie"
                                     v-model="input_pesquisa" style="width: 30rem" @keypress.enter="pesquisa">
                             </div>
                         </div>
