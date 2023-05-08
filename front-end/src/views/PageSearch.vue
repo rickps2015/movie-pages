@@ -47,9 +47,27 @@
 // Importação de Componentes
 import axios from 'axios';
 import Pagination from '../components/Pagination.vue';
+import { useStore } from '../components/storage';
 export default {
     components: { Pagination },
     name: "PageSearch",
+    setup() {
+        let input = useStore().$state.input_pesquisa;
+        return { input }
+    },
+    computed: {
+        input() {
+            console.log("Teste: " + this.input);
+            this.pesquisa(this.input);
+            return useStore().$state.input_pesquisa;
+        }
+    },
+    watch: {
+        input() {
+            console.log("Teste 2: " + this.input);
+            this.pesquisa(this.input);
+        }
+    },
     data() {
         return {
             loading: false,
@@ -59,21 +77,21 @@ export default {
             urlAPISearchMovie: import.meta.env.VITE_API_SEARCH_MOVIE,
             apiKey: import.meta.env.VITE_API_KEY,
             language: import.meta.env.VITE_LANG,
-            input_pesquisa: '',
+            // input_pesquisa: '',
         }
     },
     created() {
         this.page = 0;
-        this.input_pesquisa = localStorage.getItem('input_pesquisa');
+        // this.input_pesquisa = localStorage.getItem('input_pesquisa');
         this.pesquisa();
     },
     methods: {
-        async pesquisa() {
+        async pesquisa(input = this.input) {
             let data = {};
             if (this.page != 0) {
-                data = this.urlAPISearchMovie + '?' + this.apiKey + this.language + '&query=' + this.input_pesquisa + '&page=' + this.page;
+                data = this.urlAPISearchMovie + '?' + this.apiKey + this.language + '&query=' + input + '&page=' + this.page;
             } else {
-                data = this.urlAPISearchMovie + '?' + this.apiKey + this.language + '&query=' + this.input_pesquisa;
+                data = this.urlAPISearchMovie + '?' + this.apiKey + this.language + '&query=' + input;
             }
             this.loading = true;
             await axios.get(data)

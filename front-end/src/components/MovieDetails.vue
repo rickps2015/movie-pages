@@ -60,7 +60,7 @@ export default {
     created() {
         this.id = this.$route.params.id || 0;
     },
-    mounted() {
+    beforeMount() {
         this.getMovie();
     },
     methods: {

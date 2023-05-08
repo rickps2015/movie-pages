@@ -33,12 +33,17 @@
 </template>
 
 <script>
+import { mapWritableState } from 'pinia'
+import { useStore } from './storage'
 export default {
     data() {
         return {
             theme: '',
-            input_pesquisa: '',
+            // input_pesquisa: '',
         }
+    },
+    computed: {
+        ...mapWritableState(useStore, ['input_pesquisa']),
     },
     mounted() {
         let localTheme = localStorage.getItem('theme'); //gets stored theme value if any
@@ -47,8 +52,12 @@ export default {
     },
     methods: {
         pesquisa() {
-            localStorage.setItem('input_pesquisa', this.input_pesquisa);
-            this.$router.push({ name: 'PageSearch' });
+            console.log("Teste: " + this.input_pesquisa);
+            
+            // Verificar se esta página é a atual
+            if (this.$route.name != 'PageSearch') {
+                this.$router.push({ name: 'PageSearch' });
+            }
         },
         toggleTheme() {
             this.theme = this.theme == 'darkMode' ? '' : 'darkMode'; //toggles theme value
