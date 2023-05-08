@@ -44,6 +44,7 @@
 <style scoped></style>
 
 <script>
+// Importação de Componentes
 import axios from 'axios';
 import Pagination from '../components/Pagination.vue';
 export default {
