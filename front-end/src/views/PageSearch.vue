@@ -47,25 +47,20 @@
 // Importação de Componentes
 import axios from 'axios';
 import Pagination from '../components/Pagination.vue';
+import { mapState } from 'pinia';
 import { useStore } from '../components/storage';
 export default {
     components: { Pagination },
     name: "PageSearch",
-    setup() {
-        let input = useStore().$state.input_pesquisa;
-        return { input }
-    },
     computed: {
-        input() {
-            console.log("Teste: " + this.input);
-            this.pesquisa(this.input);
-            return useStore().$state.input_pesquisa;
-        }
+        ...mapState(useStore, ['input_pesquisa']),
     },
     watch: {
-        input() {
-            console.log("Teste 2: " + this.input);
-            this.pesquisa(this.input);
+        input_pesquisa: {
+            async handler(newValue, oldValue) {
+                await this.pesquisa();
+            },
+            deep: true
         }
     },
     data() {
@@ -80,18 +75,17 @@ export default {
             // input_pesquisa: '',
         }
     },
-    created() {
+    async created() {
         this.page = 0;
-        // this.input_pesquisa = localStorage.getItem('input_pesquisa');
-        this.pesquisa();
+        await this.pesquisa();
     },
     methods: {
-        async pesquisa(input = this.input) {
+        async pesquisa() {
             let data = {};
             if (this.page != 0) {
-                data = this.urlAPISearchMovie + '?' + this.apiKey + this.language + '&query=' + input + '&page=' + this.page;
+                data = this.urlAPISearchMovie + '?' + this.apiKey + this.language + '&query=' + this.input_pesquisa + '&page=' + this.page;
             } else {
-                data = this.urlAPISearchMovie + '?' + this.apiKey + this.language + '&query=' + input;
+                data = this.urlAPISearchMovie + '?' + this.apiKey + this.language + '&query=' + this.input_pesquisa;
             }
             this.loading = true;
             await axios.get(data)
@@ -106,7 +100,7 @@ export default {
         // Alterar a página
         async alterarpage(page) {
             this.page = page;
-            this.pesquisa();
+            await this.pesquisa();
         }
     },
 }
