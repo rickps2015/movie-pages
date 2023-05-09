@@ -5,7 +5,9 @@ ul.pagination {
     margin: 0;
 }
 
-ul.pagination li {display: inline;}
+ul.pagination li {
+    display: inline;
+}
 
 ul.pagination li a {
     color: var(--vt-c-red);
@@ -20,4 +22,4 @@ ul.pagination li a.active {
     background-color: var(--color-background-2);
 }
 
-ul.pagination li a:hover:not(.active) {background-color: #ddd;}
+ul.pagination li a:hover:not(.active) {background-color: var(--vt-c-yellow);}

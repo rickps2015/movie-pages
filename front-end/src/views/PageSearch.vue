@@ -6,11 +6,11 @@
                     <font-awesome-icon class="ms-4 mt-2 text-danger" icon="fa-solid fa-spinner" spin
                         style="font-size: 2rem" />
                 </template>
-                <div v-if="!loading" class="row justify-content-center mt-3">
+                <div v-if="!loading && dados.total_results > 0" class="row justify-content-center mt-3">
                     <div class="col-12">
                         <div class="row">
                             <div class="col-12 text-start">
-                                <h3 class="text-start">Resultados de Pesquisa</h3>
+                                <h3 class="text-start">Resultados de Pesquisa: <span class="text-warning fw-bolder">{{ input_pesquisa }}</span></h3>
                             </div>
                         </div>
                         <div class="row d-flex align-items-center justify-content-center">
@@ -27,11 +27,18 @@
                                 </div>
                             </template>
                         </div>
-                        <div class="row justify-content-end">
+                        <div class="row justify-content-center mt-5 mb-3">
                             <div class="col-auto">
                                 <Pagination :total-pages="dados.total_pages" :current-page="dados.page"
                                     @page-changed="alterarpage"></Pagination>
                             </div>
+                        </div>
+                    </div>
+                </div>
+                <div v-else-if="!loading && dados.total_results == 0">
+                    <div class="row mt-5">
+                        <div class="col-12 text-center">
+                            <h3 class="text-danger">Sem resultados para esta pesquisa <br> <span class="text-warning fw-bolder"> {{ input_pesquisa }} </span></h3>
                         </div>
                     </div>
                 </div>
@@ -72,7 +79,6 @@ export default {
             urlAPISearchMovie: import.meta.env.VITE_API_SEARCH_MOVIE,
             apiKey: import.meta.env.VITE_API_KEY,
             language: import.meta.env.VITE_LANG,
-            // input_pesquisa: '',
         }
     },
     async created() {
@@ -80,6 +86,7 @@ export default {
         await this.pesquisa();
     },
     methods: {
+        // Pesquisa Filmes
         async pesquisa() {
             let data = {};
             if (this.page != 0) {

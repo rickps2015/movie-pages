@@ -1,17 +1,17 @@
 <template>
-    <nav aria-label="Paginação">
+    <nav v-if="totalPages > 1" aria-label="Paginação">
         <ul class="pagination">
             <li class="page-item" :class="{ disabled: currentPage === 1 }">
-                <a class="page-link rounded-circle" @click="goToPage(currentPage - 1)" href="#" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
+                <a class="page-link rounded me-1" @click="goToPage(currentPage - 1)" href="#" aria-label="Previous">
+                    <span aria-hidden="true" class="fw-bolder">&laquo;</span>
                 </a>
             </li>
             <li class="page-item" v-for="page in pages" :key="page" :class="{ active: currentPage === page }">
-                <a class="page-link rounded-circle fw-bolder" @click="goToPage(page)" href="#">{{ page }}</a>
+                <a class="page-link rounded fw-bolder" @click="goToPage(page)" href="#">{{ page }}</a>
             </li>
             <li class="page-item" :class="{ disabled: currentPage === totalPages }">
-                <a class="page-link rounded-circle" @click="goToPage(currentPage + 1)" href="#" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
+                <a class="page-link rounded ms-1" @click="goToPage(currentPage + 1)" href="#" aria-label="Next">
+                    <span aria-hidden="true" class="fw-bolder">&raquo;</span>
                 </a>
             </li>
         </ul>

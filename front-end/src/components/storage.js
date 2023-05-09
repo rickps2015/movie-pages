@@ -6,7 +6,7 @@ export const useStore = defineStore('storage', {
     state: () => {
         return {
             // all these properties will have their type inferred automatically
-            input_pesquisa: '...',
+            input_pesquisa: '',
         }
     }
 })

@@ -11,7 +11,7 @@
                         <div class="col-auto">
                             <div class="btn-group m-0 p-0">
                                 <input type="text" class="form-control rounded-pill border-0 mx-1" placeholder="Search Movie"
-                                    v-model="input_pesquisa" style="width: 30rem" @keypress.enter="pesquisa">
+                                    v-model="search" style="width: 30rem" @keypress.enter="pesquisa">
                             </div>
                         </div>
                         <!-- Trocar de tema (Dark-Light) -->
@@ -39,21 +39,22 @@ export default {
     data() {
         return {
             theme: '',
-            // input_pesquisa: '',
+            search: '',
         }
     },
     computed: {
         ...mapWritableState(useStore, ['input_pesquisa']),
     },
     mounted() {
-        let localTheme = localStorage.getItem('theme'); //gets stored theme value if any
-        this.theme = localTheme; //sets theme value
-        document.documentElement.setAttribute('data-theme', localTheme); // updates the data-theme attribute
+        if (localStorage.getItem('input_pesquisa') != null) this.input_pesquisa = localStorage.getItem('input_pesquisa');
+        this.theme = localStorage.getItem('theme'); //gets stored theme value if any
+        document.documentElement.setAttribute('data-theme', this.theme); // updates the data-theme attribute
     },
     methods: {
         pesquisa() {
-            console.log("Teste: " + this.input_pesquisa);
-            
+            this.input_pesquisa = this.search;
+            this.search = '';
+            localStorage.setItem('input_pesquisa', this.input_pesquisa);
             // Verificar se esta página é a atual
             if (this.$route.name != 'PageSearch') {
                 this.$router.push({ name: 'PageSearch' });
