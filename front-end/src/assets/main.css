@@ -40,6 +40,19 @@ main {
   padding-top: 64px; /* altura do cabeçalho fixo, ajuste de acordo com o seu caso */
 }
 
+/* estilo da barra de rolagem */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 80%;
+  background-color: var(--color-background-2);
+}
+
+/* estilo do polegar da barra de rolagem */
+::-webkit-scrollbar-thumb {
+  background-color: var(--vt-c-red);
+  border-radius: 10px;
+}
+
 @media (hover: hover) {
   a:hover {
     color: var(--vt-c-yellow);

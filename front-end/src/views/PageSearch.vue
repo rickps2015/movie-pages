@@ -8,7 +8,7 @@
                 </template>
                 <div v-if="!loading && dados.total_results > 0" class="row justify-content-center mt-3">
                     <div class="col-12">
-                        <div class="row">
+                        <div class="row mb-3">
                             <div class="col-12 text-start">
                                 <h3 class="text-start">Resultados de Pesquisa: <span class="text-warning fw-bolder">{{ input_pesquisa }}</span></h3>
                             </div>
