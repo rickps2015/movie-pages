@@ -31,6 +31,7 @@
                         :src="imgAPI + dados.backdrop_path" alt="cover" class="blur_back" />
                     <img v-else :src="imgAPI + dados.poster_path" alt="cover" class="blur_back" />
                 </div>
+                <!-- Elenco do Filme -->
                 <div class="col-3">
                     <div class="card">
                         <img src="https://images.unsplash.com/photo-1656618020911-1c7a937175fd?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NTc1MzQyNTE&ixlib=rb-1.2.1&q=80"
@@ -62,6 +63,7 @@
 
 <style scoped>
 @import "../assets/DetailsMovie.css";
+@import "../assets/StyleCardActor.css";
 </style>
 
 <script>
