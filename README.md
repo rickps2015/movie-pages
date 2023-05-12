@@ -22,7 +22,7 @@ A API é gratuita, precisando apenas de um token key para que seja possivel real
 ### Movie Details
 ![Movie Details](https://github.com/rickps2015/movie-pages/blob/main/movies-details.png?raw=true)
 
-## Instalacoes
+## Instalações
 ### Instalar dependencias
 ```
 npm install 
