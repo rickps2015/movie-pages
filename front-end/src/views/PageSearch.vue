@@ -54,13 +54,13 @@
 // Importação de Componentes
 import axios from 'axios';
 import Pagination from '../components/Pagination.vue';
-import { mapState } from 'pinia';
+import { mapWritableState } from 'pinia';
 import { useStore } from '../components/storage';
 export default {
     components: { Pagination },
     name: "PageSearch",
     computed: {
-        ...mapState(useStore, ['input_pesquisa']),
+        ...mapWritableState(useStore, ['input_pesquisa']),
     },
     watch: {
         input_pesquisa: {
@@ -84,6 +84,11 @@ export default {
     async created() {
         this.page = 0;
         await this.pesquisa();
+    },
+    // Limpar a pesquisa quando o componente for destruido
+    beforeUnmount() {
+        this.input_pesquisa = '';
+        localStorage.removeItem('input_pesquisa');
     },
     methods: {
         // Pesquisa Filmes
