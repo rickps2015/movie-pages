@@ -3,6 +3,16 @@ Este é um pequeno projeto de um site de apresentação de filmes, o mesmo utili
 
 A API é gratuita, precisando apenas de um token key para que seja possivel realizar as requisições, para mais informações de como obter um token, basta acessar o site oficial do <a href="https://developers.themoviedb.org/3/getting-started/introduction" target="_blank">*'themoviedb'*</a>
 
+## Screenshots
+### Home Page
+![Home Page](https://github.com/rickps2015/movie-pages/blob/main/home.png?raw=true)
+
+### Search
+![Search](https://github.com/rickps2015/movie-pages/blob/main/search.png?raw=true)
+
+### Movie Details
+![Movie Details](https://github.com/rickps2015/movie-pages/blob/main/movies-details.png?raw=true)
+
 ## Instalações
 ### Instalar dependências
 ```
