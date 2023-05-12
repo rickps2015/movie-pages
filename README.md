@@ -9,7 +9,7 @@ A API é gratuita, precisando apenas de um token key para que seja possivel real
   - [Search](#search)
   - [Movie Details](#movie-details)
 - [Instalações](#instalações)
-  - [Instalar dependencias](#instalar-dependencias)
+  - [Instalar dependências](#instalar-dependências)
 - [Executar o projeto](#executar-o-projeto)
 
 ## Screenshots
@@ -23,7 +23,7 @@ A API é gratuita, precisando apenas de um token key para que seja possivel real
 ![Movie Details](https://github.com/rickps2015/movie-pages/blob/main/movies-details.png?raw=true)
 
 ## Instalações
-### Instalar dependencias
+### Instalar dependências
 ```
 npm install 
 ```
