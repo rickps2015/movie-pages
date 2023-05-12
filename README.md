@@ -8,7 +8,7 @@ A API é gratuita, precisando apenas de um token key para que seja possivel real
   - [Home Page](#home-page)
   - [Search](#search)
   - [Movie Details](#movie-details)
-- [Instalacoes](#instalacoes)
+- [Instalações](#instalações)
   - [Instalar dependencias](#instalar-dependencias)
 - [Executar o projeto](#executar-o-projeto)
 
