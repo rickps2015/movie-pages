@@ -1,6 +1,6 @@
 <template>
     <main>
-        <div class="container-fluid p-0 mt-2">
+        <div class="container-fluid p-0 mt-2 mb-4">
             <template v-if="loading">
                 <font-awesome-icon class="ms-4 mt-2 text-danger" icon="fa-solid fa-spinner" spin style="font-size: 2rem" />
             </template>

@@ -1,12 +1,12 @@
 .cards {
   overflow: visible;
   width: 198px;
-  height: 315px;
+  height: 320px;
   margin: 0 0 7px 0;
 }
 
 .cards img {
-  width: 191px;
+  width: 198px;
   border-radius: 5px;
 }
 
@@ -54,9 +54,9 @@
   position: absolute;
   width: 98%;
   height: 98%;
-  background-color: #151515;
+  background-color: var(--color-background);
   border-radius: 5px;
-  color: white;
+  color: var(--color-text);
   display: flex;
   flex-direction: column;
   justify-content: center;
