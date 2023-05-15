@@ -32,7 +32,7 @@
                     <img v-else :src="imgAPI + dados.poster_path" alt="cover" class="blur_back" />
                 </div>
                 <!-- Cards do Elenco do Filme -->
-                <div class="row justify-content-center mb-4">
+                <div v-if="!loading" class="row justify-content-center mb-4">
                     <h3 class="text-start mb-4 ps-4">Elenco</h3>
                     <template v-for="item in credits.cast" :key="item.id">
                         <div v-if="item.profile_path != null" class="col-auto px-1">
