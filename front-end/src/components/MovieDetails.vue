@@ -6,6 +6,7 @@
                     <font-awesome-icon class="ms-4 mt-2 text-danger" icon="fa-solid fa-spinner" spin
                         style="font-size: 2rem" />
                 </template>
+                <!--  Banner do Item -->
                 <div v-if="!loading" class="movie_card" id="bright">
                     <div class="info_section">
                         <div class="movie_header">
@@ -65,6 +66,12 @@
                             </div>
                         </div>
                     </template>
+                </div>
+                <!-- Votação de Filmes -->
+                <div class="row">
+                    <div class="col">
+                        
+                    </div>
                 </div>
             </div>
         </header-layout>

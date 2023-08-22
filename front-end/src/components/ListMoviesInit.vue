@@ -47,7 +47,7 @@
                         </div>
                     </div>
                     <!-- Filmes - Em Breve -->
-                    <div id="myCarousel" class="carousel carousel_upcoming slide container mt-5" data-bs-ride="carousel">
+                    <!-- <div id="myCarousel" class="carousel carousel_upcoming slide container mt-5" data-bs-ride="carousel">
                         <div class="row justify-content-between">
                             <div class="col-auto">
                                 <h3 class="text-start">Filmes em Breve</h3>
@@ -85,9 +85,9 @@
                                 </template>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- Filmes - Em Cartaz -->
-                    <div id="myCarousel" class="carousel carousel_now_playing slide container mt-5" data-bs-ride="carousel">
+                    <!-- <div id="myCarousel" class="carousel carousel_now_playing slide container mt-5" data-bs-ride="carousel">
                         <div class="row justify-content-between">
                             <div class="col-auto">
                                 <h3 class="text-start">Filmes em Cartaz</h3>
@@ -125,9 +125,9 @@
                                 </template>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- Filmes - Melhores Avaliados -->
-                    <div id="myCarousel" class="carousel carousel_top_rated slide container mt-5" data-bs-ride="carousel">
+                    <!-- <div id="myCarousel" class="carousel carousel_top_rated slide container mt-5" data-bs-ride="carousel">
                         <div class="row justify-content-between">
                             <div class="col-auto">
                                 <h3 class="text-start">Filmes Melhores Avaliados</h3>
@@ -165,7 +165,7 @@
                                 </template>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
 
 
@@ -337,13 +337,13 @@ export default defineComponent({
         async loadList() {
             this.loading = true;
             // Filmes
-            await axios.get(this.urlAPI + 'top_rated?' + this.apiKey + this.language)
-                .then(response => {
-                    this.top_rated = response.data
-                })
-                .catch(error => {
-                    console.log(error)
-                })
+            // await axios.get(this.urlAPI + 'top_rated?' + this.apiKey + this.language)
+            //     .then(response => {
+            //         this.top_rated = response.data
+            //     })
+            //     .catch(error => {
+            //         console.log(error)
+            //     })
             await axios.get(this.urlAPI + 'popular?' + this.apiKey + this.language)
                 .then(response => {
                     this.popular = response.data
@@ -351,42 +351,42 @@ export default defineComponent({
                 .catch(error => {
                     console.log(error)
                 })
-            await axios.get(this.urlAPI + 'upcoming?' + this.apiKey + this.language)
-                .then(response => {
-                    this.upcoming = response.data
-                })
-                .catch(error => {
-                    console.log(error)
-                })
-            await axios.get(this.urlAPI + 'now_playing?' + this.apiKey + this.language)
-                .then(response => {
-                    this.now_playing = response.data
-                })
-                .catch(error => {
-                    console.log(error)
-                })
-            // TV
-            await axios.get(this.tvAPI + 'top_rated?' + this.apiKey + this.language)
-                .then(response => {
-                    this.tv_top_rated = response.data
-                })
-                .catch(error => {
-                    console.log(error)
-                })
-            await axios.get(this.tvAPI + 'popular?' + this.apiKey + this.language)
-                .then(response => {
-                    this.tv_popular = response.data
-                })
-                .catch(error => {
-                    console.log(error)
-                })
-            await axios.get(this.tvAPI + 'airing_today?' + this.apiKey + this.language)
-                .then(response => {
-                    this.tv_airing_today = response.data
-                })
-                .catch(error => {
-                    console.log(error)
-                })
+            // await axios.get(this.urlAPI + 'upcoming?' + this.apiKey + this.language)
+            //     .then(response => {
+            //         this.upcoming = response.data
+            //     })
+            //     .catch(error => {
+            //         console.log(error)
+            //     })
+            // await axios.get(this.urlAPI + 'now_playing?' + this.apiKey + this.language)
+            //     .then(response => {
+            //         this.now_playing = response.data
+            //     })
+            //     .catch(error => {
+            //         console.log(error)
+            //     })
+            // // TV
+            // await axios.get(this.tvAPI + 'top_rated?' + this.apiKey + this.language)
+            //     .then(response => {
+            //         this.tv_top_rated = response.data
+            //     })
+            //     .catch(error => {
+            //         console.log(error)
+            //     })
+            // await axios.get(this.tvAPI + 'popular?' + this.apiKey + this.language)
+            //     .then(response => {
+            //         this.tv_popular = response.data
+            //     })
+            //     .catch(error => {
+            //         console.log(error)
+            //     })
+            // await axios.get(this.tvAPI + 'airing_today?' + this.apiKey + this.language)
+            //     .then(response => {
+            //         this.tv_airing_today = response.data
+            //     })
+            //     .catch(error => {
+            //         console.log(error)
+            //     })
             this.loading = false;
         },
         nextSlide(tipo, name) {
