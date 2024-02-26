@@ -5,6 +5,9 @@
                 <font-awesome-icon class="ms-4 mt-2 text-danger" icon="fa-solid fa-spinner" spin style="font-size: 2rem" />
             </template>
             <div v-if="!loading" class="row justify-content-center">
+                <div class="col-auto" v-if="popular.results != undefined">
+                    <banner :titulo="popular.results[0].title" :sinopse="popular.results[0].overview" :imagemFundo="imgAPI + popular.results[0].backdrop_path" :capa="imgAPI + popular.results[0].poster_path" :vote_average="popular.results[0].vote_average" :release_date="popular.results[0].release_date.slice(0, 4)"/>
+                </div>
                 <div class="col-12">
                     <!-- Filmes - Mais Populares -->
                     <div id="myCarousel" class="carousel carousel_popular slide container mt-5" data-bs-ride="carousel">
@@ -47,7 +50,7 @@
                         </div>
                     </div>
                     <!-- Filmes - Em Breve -->
-                    <!-- <div id="myCarousel" class="carousel carousel_upcoming slide container mt-5" data-bs-ride="carousel">
+                    <div id="myCarousel" class="carousel carousel_upcoming slide container mt-5" data-bs-ride="carousel">
                         <div class="row justify-content-between">
                             <div class="col-auto">
                                 <h3 class="text-start">Filmes em Breve</h3>
@@ -85,9 +88,9 @@
                                 </template>
                             </div>
                         </div>
-                    </div> -->
+                    </div>
                     <!-- Filmes - Em Cartaz -->
-                    <!-- <div id="myCarousel" class="carousel carousel_now_playing slide container mt-5" data-bs-ride="carousel">
+                    <div id="myCarousel" class="carousel carousel_now_playing slide container mt-5" data-bs-ride="carousel">
                         <div class="row justify-content-between">
                             <div class="col-auto">
                                 <h3 class="text-start">Filmes em Cartaz</h3>
@@ -125,9 +128,9 @@
                                 </template>
                             </div>
                         </div>
-                    </div> -->
+                    </div>
                     <!-- Filmes - Melhores Avaliados -->
-                    <!-- <div id="myCarousel" class="carousel carousel_top_rated slide container mt-5" data-bs-ride="carousel">
+                    <div id="myCarousel" class="carousel carousel_top_rated slide container mt-5" data-bs-ride="carousel">
                         <div class="row justify-content-between">
                             <div class="col-auto">
                                 <h3 class="text-start">Filmes Melhores Avaliados</h3>
@@ -165,7 +168,7 @@
                                 </template>
                             </div>
                         </div>
-                    </div> -->
+                    </div>
 
 
 
@@ -307,11 +310,13 @@
 import axios from 'axios';
 import Pagination from '../components/Pagination.vue';
 import { defineComponent } from 'vue';
+import Banner from '../components/Banner.vue';
 
 export default defineComponent({
     nama: 'ListMoviesInit',
     components: {
-        Pagination
+        Pagination,
+        Banner
     },
     data() {
         return {
@@ -337,13 +342,13 @@ export default defineComponent({
         async loadList() {
             this.loading = true;
             // Filmes
-            // await axios.get(this.urlAPI + 'top_rated?' + this.apiKey + this.language)
-            //     .then(response => {
-            //         this.top_rated = response.data
-            //     })
-            //     .catch(error => {
-            //         console.log(error)
-            //     })
+            await axios.get(this.urlAPI + 'top_rated?' + this.apiKey + this.language)
+                .then(response => {
+                    this.top_rated = response.data
+                })
+                .catch(error => {
+                    console.log(error)
+                })
             await axios.get(this.urlAPI + 'popular?' + this.apiKey + this.language)
                 .then(response => {
                     this.popular = response.data
@@ -351,20 +356,20 @@ export default defineComponent({
                 .catch(error => {
                     console.log(error)
                 })
-            // await axios.get(this.urlAPI + 'upcoming?' + this.apiKey + this.language)
-            //     .then(response => {
-            //         this.upcoming = response.data
-            //     })
-            //     .catch(error => {
-            //         console.log(error)
-            //     })
-            // await axios.get(this.urlAPI + 'now_playing?' + this.apiKey + this.language)
-            //     .then(response => {
-            //         this.now_playing = response.data
-            //     })
-            //     .catch(error => {
-            //         console.log(error)
-            //     })
+            await axios.get(this.urlAPI + 'upcoming?' + this.apiKey + this.language)
+                .then(response => {
+                    this.upcoming = response.data
+                })
+                .catch(error => {
+                    console.log(error)
+                })
+            await axios.get(this.urlAPI + 'now_playing?' + this.apiKey + this.language)
+                .then(response => {
+                    this.now_playing = response.data
+                })
+                .catch(error => {
+                    console.log(error)
+                })
             // // TV
             // await axios.get(this.tvAPI + 'top_rated?' + this.apiKey + this.language)
             //     .then(response => {

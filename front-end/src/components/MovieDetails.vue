@@ -72,7 +72,7 @@
                     <div class="col">
                         
                     </div>
-                </div>
+                </div> 
             </div>
         </header-layout>
     </main>
