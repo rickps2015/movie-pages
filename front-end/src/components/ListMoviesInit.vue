@@ -5,6 +5,9 @@
                 <font-awesome-icon class="ms-4 mt-2 text-danger" icon="fa-solid fa-spinner" spin style="font-size: 2rem" />
             </template>
             <div v-if="!loading" class="row justify-content-center">
+                <div class="col-auto" v-if="popular.results != undefined">
+                    <banner :titulo="popular.results[0].title" :sinopse="popular.results[0].overview" :imagemFundo="imgAPI + popular.results[0].backdrop_path" :capa="imgAPI + popular.results[0].poster_path" :vote_average="popular.results[0].vote_average" :release_date="popular.results[0].release_date.slice(0, 4)"/>
+                </div>
                 <div class="col-12">
                     <!-- Filmes - Mais Populares -->
                     <div id="myCarousel" class="carousel carousel_popular slide container mt-5" data-bs-ride="carousel">
@@ -307,11 +310,13 @@
 import axios from 'axios';
 import Pagination from '../components/Pagination.vue';
 import { defineComponent } from 'vue';
+import Banner from '../components/Banner.vue';
 
 export default defineComponent({
     nama: 'ListMoviesInit',
     components: {
-        Pagination
+        Pagination,
+        Banner
     },
     data() {
         return {
@@ -365,28 +370,28 @@ export default defineComponent({
                 .catch(error => {
                     console.log(error)
                 })
-            // TV
-            await axios.get(this.tvAPI + 'top_rated?' + this.apiKey + this.language)
-                .then(response => {
-                    this.tv_top_rated = response.data
-                })
-                .catch(error => {
-                    console.log(error)
-                })
-            await axios.get(this.tvAPI + 'popular?' + this.apiKey + this.language)
-                .then(response => {
-                    this.tv_popular = response.data
-                })
-                .catch(error => {
-                    console.log(error)
-                })
-            await axios.get(this.tvAPI + 'airing_today?' + this.apiKey + this.language)
-                .then(response => {
-                    this.tv_airing_today = response.data
-                })
-                .catch(error => {
-                    console.log(error)
-                })
+            // // TV
+            // await axios.get(this.tvAPI + 'top_rated?' + this.apiKey + this.language)
+            //     .then(response => {
+            //         this.tv_top_rated = response.data
+            //     })
+            //     .catch(error => {
+            //         console.log(error)
+            //     })
+            // await axios.get(this.tvAPI + 'popular?' + this.apiKey + this.language)
+            //     .then(response => {
+            //         this.tv_popular = response.data
+            //     })
+            //     .catch(error => {
+            //         console.log(error)
+            //     })
+            // await axios.get(this.tvAPI + 'airing_today?' + this.apiKey + this.language)
+            //     .then(response => {
+            //         this.tv_airing_today = response.data
+            //     })
+            //     .catch(error => {
+            //         console.log(error)
+            //     })
             this.loading = false;
         },
         nextSlide(tipo, name) {
