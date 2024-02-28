@@ -190,132 +190,6 @@
                             </div>
                         </div>
                     </div>
-
-
-
-                    <!-- Comentados TVs -->
-                    <!-- Tv - Melhores Avaliados -->
-                    <!-- <div id="myCarousel" class="carousel carousel_tv_top_rated slide container mt-5"
-                        data-bs-ride="carousel">
-                        <div class="row justify-content-between">
-                            <div class="col-auto">
-                                <h3 class="text-start">Programas de TV Mais Avaliados</h3>
-                            </div>
-                            <div class="col-auto">
-                                <div class="row">
-                                    <div class="col-auto px-0">
-                                        <button class="btn-prev-next" type="button" data-bs-target="#myCarousel"
-                                            data-bs-slide="prev" @click="nextSlide(false, 'tv_top_rated')">
-                                            <font-awesome-icon icon="fa fa-solid fa-chevron-left" />
-                                        </button>
-                                    </div>
-                                    <div class="col-auto px-0">
-                                        <button class="btn-prev-next" type="button" data-bs-target="#myCarousel"
-                                            data-bs-slide="next" @click="nextSlide(true, 'tv_top_rated')">
-                                            <font-awesome-icon icon="fa fa-solid fa-chevron-right" />
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-inner carousel-inner_tv_top_rated">
-                            <div class="carousel-item carousel-item_tv_top_rated active">
-                                <template v-for="item in tv_top_rated.results" :key="item.id">
-                                    <div v-if="item.poster_path != null" class="col-auto px-1 movie-img py-2">
-                                        <router-link :to="{ name: 'details', params: { id: item.id } }">
-                                            <img class="rounded-4" :src="imgAPI + item.poster_path" :alt="item.title"
-                                                :title="item.name" style="width: 200px; height: 300px;" /><br>
-                                            <span class="text-warning">
-                                                <font-awesome-icon icon="fa-solid fa-star text-warning" />
-                                                {{ item.vote_average }}
-                                            </span>
-                                        </router-link>
-                                    </div>
-                                </template>
-                            </div>
-                        </div>
-                    </div> -->
-                    <!-- Tv - No Ar -->
-                    <!-- <div id="myCarousel" class="carousel carousel_tv_airing_today slide container mt-5 mb-5"
-                        data-bs-ride="carousel">
-                        <div class="row justify-content-between">
-                            <div class="col-auto">
-                                <h3 class="text-start">Programas de TV no Ar</h3>
-                            </div>
-                            <div class="col-auto">
-                                <div class="row">
-                                    <div class="col-auto px-0">
-                                        <button class="btn-prev-next" type="button" data-bs-target="#myCarousel"
-                                            data-bs-slide="prev" @click="nextSlide(false, 'tv_airing_today')">
-                                            <font-awesome-icon icon="fa fa-solid fa-chevron-left" />
-                                        </button>
-                                    </div>
-                                    <div class="col-auto px-0">
-                                        <button class="btn-prev-next" type="button" data-bs-target="#myCarousel"
-                                            data-bs-slide="next" @click="nextSlide(true, 'tv_airing_today')">
-                                            <font-awesome-icon icon="fa fa-solid fa-chevron-right" />
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-inner carousel-inner_tv_airing_today">
-                            <div class="carousel-item carousel-item_tv_airing_today active">
-                                <template v-for="item in tv_airing_today.results" :key="item.id">
-                                    <div v-if="item.poster_path != null" class="col-auto px-1 movie-img py-2">
-                                        <router-link :to="{ name: 'details', params: { id: item.id } }">
-                                        <img class="rounded-4" :src="imgAPI + item.poster_path" :alt="item.title"
-                                            :title="item.name" style="width: 200px; height: 300px;" /><br>
-                                        <span class="text-warning">
-                                            <font-awesome-icon icon="fa-solid fa-star text-warning" />
-                                            {{ item.vote_average }}
-                                        </span>
-                                    </router-link>
-                                    </div>
-                                </template>
-                            </div>
-                        </div>
-                    </div> -->
-                    <!-- Tv - Programas de TV Mais Populares -->
-                    <!-- <div id="myCarousel" class="carousel carousel_tv_popular slide container mt-5" data-bs-ride="carousel">
-                        <div class="row justify-content-between">
-                            <div class="col-auto">
-                                <h3 class="text-start">Programas de TV Mais Populares</h3>
-                            </div>
-                            <div class="col-auto">
-                                <div class="row">
-                                    <div class="col-auto px-0">
-                                        <button class="btn-prev-next" type="button" data-bs-target="#myCarousel"
-                                            data-bs-slide="prev" @click="nextSlide(false, 'tv_popular')">
-                                            <font-awesome-icon icon="fa fa-solid fa-chevron-left" />
-                                        </button>
-                                    </div>
-                                    <div class="col-auto px-0">
-                                        <button class="btn-prev-next" type="button" data-bs-target="#myCarousel"
-                                            data-bs-slide="next" @click="nextSlide(true, 'tv_popular')">
-                                            <font-awesome-icon icon="fa fa-solid fa-chevron-right" />
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-inner carousel-inner_tv_popular">
-                            <div class="carousel-item carousel-item_tv_popular active">
-                                <template v-for="item in tv_popular.results" :key="item.id">
-                                    <div v-if="item.poster_path != null" class="col-auto px-1 movie-img py-2">
-                                        <router-link :to="{ name: 'details', params: { id: item.id } }">
-                                        <img class="rounded-4" :src="imgAPI + item.poster_path" :alt="item.title"
-                                            :title="item.name" style="width: 200px; height: 300px;" /><br>
-                                        <span class="text-warning">
-                                            <font-awesome-icon icon="fa-solid fa-star text-warning" />
-                                            {{ item.vote_average }}
-                                        </span>
-                                    </router-link>
-                                    </div>
-                                </template>
-                            </div>
-                        </div>
-                    </div> -->
                 </div>
             </div>
         </div>
@@ -370,6 +244,9 @@ export default {
             // autoplay: {
             //     delay: 5000,
             // },
+            pagination: {
+                el: '.swiper-pagination', // Seletor do elemento de paginação
+            },
             navigation: {
                 nextEl: '.swiper-button-next',
                 prevEl: '.swiper-button-prev',
@@ -408,28 +285,6 @@ export default {
                 .catch(error => {
                     console.log(error)
                 })
-            // // TV
-            // await axios.get(this.tvAPI + 'top_rated?' + this.apiKey + this.language)
-            //     .then(response => {
-            //         this.tv_top_rated = response.data
-            //     })
-            //     .catch(error => {
-            //         console.log(error)
-            //     })
-            // await axios.get(this.tvAPI + 'popular?' + this.apiKey + this.language)
-            //     .then(response => {
-            //         this.tv_popular = response.data
-            //     })
-            //     .catch(error => {
-            //         console.log(error)
-            //     })
-            // await axios.get(this.tvAPI + 'airing_today?' + this.apiKey + this.language)
-            //     .then(response => {
-            //         this.tv_airing_today = response.data
-            //     })
-            //     .catch(error => {
-            //         console.log(error)
-            //     })
             this.loading = false;
         },
         nextSlide(tipo, name) {
