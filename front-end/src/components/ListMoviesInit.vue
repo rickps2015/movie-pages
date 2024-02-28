@@ -4,9 +4,30 @@
             <template v-if="loading">
                 <font-awesome-icon class="ms-4 mt-2 text-danger" icon="fa-solid fa-spinner" spin style="font-size: 2rem" />
             </template>
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <template class="swiper-slide" v-for="item in popular.results" :key="item.id">
+                        <div v-if="item.poster_path != null" class="col-auto swiper-slide px-1 movie-img py-2">
+                            <router-link :to="{ name: 'details', params: { id: item.id } }">
+                                <img class="rounded-4" :src="imgAPI + item.poster_path" :alt="item.title"
+                                    :title="item.title" style="width: 200px; height: 300px;" /><br>
+                                <span class="text-warning">
+                                    <font-awesome-icon icon="fa-solid fa-star text-warning" />
+                                    {{ item.vote_average }}
+                                </span>
+                            </router-link>
+                        </div>
+                    </template>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
             <div v-if="!loading" class="row justify-content-center">
                 <div class="col-auto" v-if="popular.results != undefined">
-                    <banner :titulo="popular.results[0].title" :sinopse="popular.results[0].overview" :imagemFundo="imgAPI + popular.results[0].backdrop_path" :capa="imgAPI + popular.results[0].poster_path" :vote_average="popular.results[0].vote_average" :release_date="popular.results[0].release_date.slice(0, 4)"/>
+                    <banner :titulo="popular.results[0].title" :sinopse="popular.results[0].overview"
+                        :imagemFundo="imgAPI + popular.results[0].backdrop_path"
+                        :capa="imgAPI + popular.results[0].poster_path" :vote_average="popular.results[0].vote_average"
+                        :release_date="popular.results[0].release_date.slice(0, 4)" />
                 </div>
                 <div class="col-12">
                     <!-- Filmes - Mais Populares -->
@@ -304,18 +325,21 @@
 
 <style scope>
 @import "../assets/StyleCarrusel.css";
+
+.swiper-slide {
+    width: 100%
+}
 </style>
 
 <script>
 import axios from 'axios';
-import Pagination from '../components/Pagination.vue';
-import { defineComponent } from 'vue';
 import Banner from '../components/Banner.vue';
+import Swiper from 'swiper';
+import 'swiper/swiper-bundle.css';
 
-export default defineComponent({
+export default {
     nama: 'ListMoviesInit',
     components: {
-        Pagination,
         Banner
     },
     data() {
@@ -337,6 +361,20 @@ export default defineComponent({
     },
     mounted() {
         this.loadList();
+        new Swiper('.swiper-container', {
+            // Configurações do Swiper.js
+            // Por exemplo:
+            slidesPerView: 7, // Defina quantos filmes deseja mostrar por slide
+            spaceBetween: 0, // Espaçamento entre os slides
+            loop: true,
+            // autoplay: {
+            //     delay: 5000,
+            // },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
     },
     methods: {
         async loadList() {
@@ -413,5 +451,5 @@ export default defineComponent({
 
         },
     },
-})
+}
 </script>
